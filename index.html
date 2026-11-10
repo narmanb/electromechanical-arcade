@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#161c21">
+<title>Electromechanical Arcade | Playable Prototype</title>
+<style>
+:root{--ink:#e9e3d5;--muted:#a5a9a8;--gold:#e7c27e;--red:#ba594d;--mint:#8bc3b6;--panel:#222b30;--edge:#4b5553;--bg:#141a1f;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+*{box-sizing:border-box}html{min-height:100%;}body{margin:0;min-height:100dvh;background:radial-gradient(circle at 50% -16%,#394041 0,#191f24 40%,#12171c 85%);-webkit-tap-highlight-color:transparent}button,input{font:inherit}button{cursor:pointer;touch-action:manipulation}button:focus-visible,input:focus-visible{outline:3px solid var(--mint);outline-offset:3px}[hidden]{display:none!important}
+.page{width:min(1120px,100%);margin:0 auto;padding:16px clamp(12px,3vw,30px) 44px}.mast{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #475352;padding:9px 0 18px;margin-bottom:18px}.wordmark{display:flex;gap:12px;align-items:center}.emblem{width:43px;height:43px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;box-shadow:0 0 0 3px #2c373c inset;color:var(--gold);font-size:25px}.brandtext{line-height:1.08;letter-spacing:.17em;font-weight:900;font-size:clamp(13px,2vw,18px)}.brandtext span{display:block;color:var(--gold);font-size:.8em;letter-spacing:.34em;margin-top:5px}.tag{font-size:10px;color:var(--mint);border:1px solid #4e6e68;border-radius:20px;padding:7px 10px;letter-spacing:.12em;white-space:nowrap}
+.kicker{text-transform:uppercase;letter-spacing:.19em;font-size:11px;font-weight:800;color:var(--mint);margin:0 0 8px}.hero{padding:12px 0 18px}.hero h1{font-family:Georgia,Times,serif;font-weight:700;font-size:clamp(31px,5.4vw,59px);letter-spacing:-.035em;line-height:1.02;margin:0 0 12px;color:#f5e4bb}.hero p{max-width:700px;color:#c2c5bd;font-size:clamp(14px,1.7vw,17px);line-height:1.6;margin:0}.ornament{width:76px;height:3px;background:linear-gradient(90deg,var(--gold),transparent);margin:17px 0 2px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:15px}.gamecard{border:1px solid #5a5e55;background:linear-gradient(157deg,#323837,#20272a 73%);border-radius:14px;overflow:hidden;box-shadow:0 14px 32px #0005;position:relative}.gamecard::after{content:'';position:absolute;inset:0;box-shadow:inset 0 1px #ffffff29;pointer-events:none}.card-art{height:175px;position:relative;overflow:hidden;border-bottom:5px solid #766145;display:flex;align-items:center;justify-content:center}.driveart{background:repeating-linear-gradient(0deg,#45503d 0 14px,#434a3a 14px 27px)}.drivelane{width:56%;height:260px;transform:rotate(10deg);background:#555d57;border-left:9px solid #d6d0a7;border-right:9px solid #d6d0a7;box-shadow:0 0 0 9px #6f7b67;position:absolute}.drivelane:before{content:'';position:absolute;inset:0 45% 0 45%;background:repeating-linear-gradient(0deg,#d6c887 0 29px,transparent 29px 65px)}.toycar{position:relative;font-size:72px;filter:drop-shadow(6px 8px 1px #161d1bab);transform:rotate(-90deg)}.ballart{background:repeating-linear-gradient(0deg,#c7b795,#c7b795 17px,#bbae8f 17px,#bbae8f 21px)}.ballrail{width:73%;height:5px;border-radius:10px;background:linear-gradient(#f7f9ed,#5e6970);transform-origin:left center;position:absolute;left:13%;top:calc(50% - 12px);box-shadow:0 5px 8px #332b2366}.ballrail.b{top:calc(50% + 12px)}.steelball{width:39px;height:39px;border-radius:50%;position:absolute;left:45%;top:calc(50% - 19px);background:radial-gradient(circle at 30% 24%,white,#d7e4e4 26%,#87939d 52%,#323b42 85%);box-shadow:5px 8px 5px #2227}.card-body{padding:18px}.eyebrow{color:var(--mint);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:.16em}.card-body h2{font-family:Georgia,Times,serif;font-size:29px;margin:7px 0;color:#f2e2b9}.card-body p{font-size:13px;line-height:1.55;color:#c1c3ba;min-height:59px;margin:9px 0 16px}.card-foot{display:flex;gap:10px;justify-content:space-between;align-items:center}.high{font-size:12px;color:#f1c985}.btn{background:#e7c27e;border:1px solid #f5da9e;color:#222523;font-weight:850;letter-spacing:.06em;text-transform:uppercase;border-radius:7px;padding:11px 16px;min-height:44px;box-shadow:inset 0 1px 2px #fff5,0 3px 0 #967e53;transition:filter .15s}.btn:hover{filter:brightness(1.08)}.btn:active{transform:translateY(2px);box-shadow:inset 0 1px 2px #fff5,0 1px 0 #967e53}.btn-alt{background:#323d3e;color:var(--ink);border-color:#66736d;box-shadow:0 3px 0 #152021}.btn-sm{padding:8px 11px;min-height:38px;font-size:11px}.btn-dark{background:#673c37;color:#fff1d7;border-color:#985f53;box-shadow:0 3px 0 #311f21}
+.panel-note{margin:24px 0 0;border:1px solid #3b4849;padding:14px 17px;border-radius:9px;color:#b5bbb7;font-size:12px;line-height:1.65;background:#1b2528}.panel-note strong{color:var(--gold)}a{color:var(--mint)}
+#player{max-width:950px;margin:0 auto}.gamebar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:4px 0 13px}.gamebar .left,.gamebar .right{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.game-label{font-size:15px;letter-spacing:.08em;color:var(--gold);font-weight:900}.screen-frame{background:linear-gradient(125deg,#9b8258,#584e43 20%,#343b3c 35%,#897151 80%,#bba071);border:7px solid #554c40;padding:clamp(5px,1vw,11px);border-radius:16px;box-shadow:inset 0 1px 4px #f8e3ad66,0 22px 38px #0007}.glass{background:#0e181a;border:2px solid #1b2427;border-radius:8px;overflow:hidden;position:relative}.glass canvas{display:block;width:100%;height:auto;touch-action:none;user-select:none}.glass::after{content:'';pointer-events:none;position:absolute;inset:0;background:linear-gradient(126deg,#ffffff15 1%,transparent 25%,transparent 66%,#fcf9e507 80%,transparent);border-radius:8px}
+.hud{display:flex;flex-wrap:wrap;justify-content:space-between;gap:7px;margin:12px 0 8px}.readout{flex:1;min-width:95px;background:#11191b;border:1px solid #55615c;border-radius:7px;padding:7px 10px}.readout small{display:block;color:#849890;font-size:9px;letter-spacing:.14em;font-weight:800}.readout b{display:block;font-family:ui-monospace,Menlo,monospace;color:#edc98d;font-size:clamp(18px,3.5vw,25px);line-height:1.35;font-weight:900}.controlbox{background:linear-gradient(#2c3535,#22292b);border:1px solid #52635d;border-radius:11px;padding:14px 15px 16px;margin-top:12px;box-shadow:inset 0 1px #f0ddaa17}.control-title{font-size:12px;text-transform:uppercase;letter-spacing:.14em;font-weight:900;color:var(--gold);margin:0 0 8px}.controlhint{color:#c2c9bd;font-size:12px;line-height:1.5;margin:0 0 12px}.controls-row{display:flex;gap:12px;align-items:center;justify-content:center}.bigcontrol{font-size:15px;min-width:90px;min-height:58px;flex:1;touch-action:none;user-select:none}.bigcontrol.pressed{filter:brightness(1.23);transform:translateY(2px)}.controlcenter{width:43%;min-width:110px;display:flex;flex-direction:column;gap:4px;align-items:center}.sliderlabel{font-size:10px;font-weight:800;letter-spacing:.12em;color:#d8cba7;text-align:center}input[type=range]{width:100%;height:34px;accent-color:#e7c27e;cursor:pointer;touch-action:pan-x}#ballControls .bigcontrol{min-width:84px}.ball-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:11px}.ball-bottom span{font-size:11px;color:#bac3b8}.statusline{min-height:25px;display:flex;justify-content:center;align-items:center;color:#f2dbab;text-align:center;font-size:13px;font-weight:750;margin:8px 0 0;letter-spacing:.01em}.history{color:#b3bdb8;font-size:11px;line-height:1.5;padding:10px 2px}.history a{text-underline-offset:2px}
+@media(max-width:600px){.grid{grid-template-columns:1fr;gap:13px}.card-art{height:138px}.card-body{padding:14px}.card-body p{min-height:0}.hero h1{font-size:37px}.gamebar .right{gap:5px}.gamebar .btn{min-height:37px;padding:8px 9px;font-size:10px}.game-label{font-size:13px}.page{padding:8px 9px 25px}.mast{padding:5px 2px 13px}.tag{font-size:9px}.screen-frame{padding:4px;border-width:5px;border-radius:10px}.hud{gap:5px}.readout{min-width:70px;padding:7px}.readout small{font-size:9px}.controlbox{padding:10px;margin-top:10px}.bigcontrol{min-width:70px;min-height:60px;font-size:14px}.controlcenter{width:39%}.controls-row{gap:6px}}
+@media (max-width:700px) and (orientation:landscape){.page{max-width:950px}.mast{margin-bottom:7px;padding-bottom:8px}.screen-frame{max-width:85vh;margin:auto}.gamebar{margin-bottom:5px}.hud{margin-top:7px}.controlbox{margin-top:7px}.history{display:none}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="mast"><div class="wordmark"><div class="emblem" aria-hidden="true">⚙</div><div class="brandtext">ELECTROMECHANICAL<span>ARCADE</span></div></div><div class="tag">PROTOTYPE · v0.1</div></header>
+<main>
+<section id="library">
+<div class="hero"><p class="kicker">Before pixels, there were moving parts</p><h1>The arcade before<br>the video game.</h1><p>A small, playable tribute to mechanical and electromechanical amusement machines. Miniature models, moving roads, steel balls, relays and the stubborn ingenuity of an era before screens ran the show.</p><div class="ornament"></div></div>
+<div class="grid">
+<article class="gamecard"><div class="card-art driveart" aria-hidden="true"><div class="drivelane"></div><div class="toycar">🚘</div></div><div class="card-body"><div class="eyebrow">Kasco · 1959 · Driving</div><h2>Mini Drive</h2><p>Steer a miniature car over a moving mechanical roadway. Keep it on the road to build your score before the clock runs out.</p><div class="card-foot"><span class="high" id="libraryDriveHigh">BEST 00000</span><button class="btn" data-play="drive">Play machine</button></div></div></article>
+<article class="gamecard"><div class="card-art ballart" aria-hidden="true"><div class="ballrail"></div><div class="ballrail b"></div><div class="steelball"></div></div><div class="card-body"><div class="eyebrow">Cointronics · 1960s · Skill</div><h2>Ball Walk</h2><p>Manipulate two steel rails to coax a ball uphill toward the jackpot. Five balls per round. Opening them too far sends the ball into a scoring pocket.</p><div class="card-foot"><span class="high" id="libraryBallHigh">BEST 0000</span><button class="btn" data-play="ball">Play machine</button></div></div></article>
+</div>
+<div class="panel-note"><strong>About this prototype:</strong> Gameplay and artwork are original approximations inspired by the historical machines, not exact mechanical simulations or licensed cabinet reproductions. No downloads, accounts or network connection are needed. The game works offline after the HTML file is saved on your device.</div>
+</section>
+<section id="player" hidden>
+<div class="gamebar"><div class="left"><button class="btn btn-alt btn-sm" id="backBtn">← Collection</button><span class="game-label" id="machineName">MINI DRIVE</span></div><div class="right"><button class="btn btn-alt btn-sm" id="soundBtn" aria-pressed="true">♪ SOUND ON</button><button class="btn btn-alt btn-sm" id="fullscreenBtn">⛶ FULLSCREEN</button><button class="btn btn-dark btn-sm" id="resetBtn">↻ RESET</button></div></div>
+<div class="screen-frame"><div class="glass"><canvas id="machine" width="820" height="540" aria-label="Playable mechanical arcade simulation"></canvas></div></div>
+<div class="hud"><div class="readout"><small id="labelA">SCORE</small><b id="valueA">00000</b></div><div class="readout"><small id="labelB">TIME LEFT</small><b id="valueB">75</b></div><div class="readout"><small id="labelC">BEST SCORE</small><b id="valueC">00000</b></div></div>
+<div id="driveControls" class="controlbox"><p class="control-title">Steering wheel</p><p class="controlhint">Keep the little red car on the moving road. Slide the steering control, hold ◀/▶, touch the playfield, or use the keyboard arrows/A-D.</p><div class="controls-row"><button id="steerLeft" class="btn btn-alt bigcontrol" aria-label="Steer left">◀ LEFT</button><div class="controlcenter"><span class="sliderlabel">STEER</span><input id="steerSlider" type="range" min="-1" max="1" step="0.01" value="0" aria-label="Steering direction"><span class="sliderlabel">◀ &nbsp; CENTER &nbsp; ▶</span></div><button id="steerRight" class="btn btn-alt bigcontrol" aria-label="Steer right">RIGHT ▶</button></div></div>
+<div id="ballControls" class="controlbox" hidden><p class="control-title">Twin rail controls</p><p class="controlhint">Start with the rods close. <b>Open them smoothly</b> to roll the ball uphill, then close and repeat. Open too wide and the ball drops. Five balls per round.</p><div class="controls-row"><button id="closeRods" class="btn btn-alt bigcontrol">◀ CLOSE</button><div class="controlcenter"><span class="sliderlabel">RAIL SPREAD</span><input id="gapSlider" type="range" min="0" max="100" step="1" value="8" aria-label="Distance between rails"><span id="spreadReadout" class="sliderlabel">8% OPEN</span></div><button id="openRods" class="btn btn-alt bigcontrol">OPEN ▶</button></div><div class="ball-bottom"><span>TIP: Work between ~10% and 75%.</span><button id="liftBtn" class="btn btn-sm">LIFT BALL</button></div></div>
+<div class="statusline" id="status" role="status" aria-live="polite"></div>
+<div class="history" id="history"></div>
+</section>
+</main>
+</div>
+<script>
+(() => {
+'use strict';
+const $=id=>document.getElementById(id);
+const cvs=$('machine'),ctx=cvs.getContext('2d'),W=cvs.width,H=cvs.height;
+const state={mode:'library',sound:true,last:0,keys:new Set(),holds:new Set(),actx:null};
+function storeGet(key){try{return localStorage.getItem(key)}catch{return null}}
+function storeSet(key,value){try{localStorage.setItem(key,String(value))}catch{}}
+state.sound=storeGet('ema_sound')!=='off';
+const high={drive:Number(storeGet('ema_high_drive'))||0,ball:Number(storeGet('ema_high_ball'))||0};
+let drive,ball;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;
+const format=n=>String(Math.max(0,Math.floor(n))).padStart(5,'0');
+function rr(x,y,w,h,r,fill,stroke,lw=1){ctx.beginPath();ctx.roundRect(x,y,w,h,r);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.lineWidth=lw;ctx.strokeStyle=stroke;ctx.stroke()}}
+function line(x,y,xx,yy,color,width=2){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(xx,yy);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke()}
+function text(s,x,y,size=18,color='#f5e7bd',align='left',font='system-ui',weight='700'){ctx.save();ctx.textAlign=align;ctx.fillStyle=color;ctx.font=`${weight} ${size}px ${font}`;ctx.fillText(String(s),x,y);ctx.restore()}
+function grad(x,y,xx,yy,stops){const g=ctx.createLinearGradient(x,y,xx,yy);for(const [p,c] of stops)g.addColorStop(p,c);return g}
+function circle(x,y,r,fill,stroke=null,lw=1){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}}
+function sound(type){if(!state.sound)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const a=state.actx||(state.actx=new C());if(a.state==='suspended')a.resume();const now=a.currentTime;const tone=(freq,duration,volume,wave='sine',start=0,end=freq)=>{const osc=a.createOscillator(),gain=a.createGain();osc.type=wave;osc.frequency.setValueAtTime(freq,now+start);osc.frequency.exponentialRampToValueAtTime(Math.max(1,end),now+start+duration);gain.gain.setValueAtTime(volume,now+start);gain.gain.exponentialRampToValueAtTime(.0001,now+start+duration);osc.connect(gain);gain.connect(a.destination);osc.start(now+start);osc.stop(now+start+duration+.01)};if(type==='click')tone(280,.055,.025,'triangle',0,120);if(type==='point'){tone(720,.1,.035,'sine');tone(960,.18,.028,'sine',.09)}if(type==='fall')tone(105,.42,.08,'sawtooth',0,42);if(type==='bell'){tone(880,.95,.085,'sine');tone(1320,.9,.035,'sine',.015);tone(1760,.8,.018,'sine',.03)}if(type==='finish'){tone(480,.15,.045,'triangle');tone(640,.17,.045,'triangle',.15);tone(880,.3,.06,'triangle',.3)}}catch{}}
+function shake(){try{if(navigator.vibrate)navigator.vibrate(40)}catch{}}
+function updateHigh(){ $('libraryDriveHigh').textContent='BEST '+format(high.drive);$('libraryBallHigh').textContent='BEST '+format(high.ball)}
+function setStatus(s){$('status').textContent=s}
+function newDrive(){drive={time:75,score:0,dist:0,target:0,x:410,off:false,ended:false,flash:0,checkpoint:0};$('steerSlider').value='0';setStatus('Steer through the bends. Score rises only while you stay on the road.');}
+function newBall(){ball={score:0,used:0,progress:0,gap:0.08,target:0.08,active:false,waiting:true,ended:false,lastScore:0,won:false,flash:0,notice:'Press LIFT BALL to begin.'};$('gapSlider').value=8;$('spreadReadout').textContent='8% OPEN';setStatus('Press LIFT BALL, then open and close the steel rails.');}
+function modeTo(which){state.mode=which;$('library').hidden=which!=='library';$('player').hidden=which==='library';if(which==='library'){updateHigh();return} $('machineName').textContent=which==='drive'?'MINI DRIVE':'BALL WALK';$('driveControls').hidden=which!=='drive';$('ballControls').hidden=which!=='ball';$('history').innerHTML=which==='drive'?'Inspired by <b>Kasco Mini Drive</b> (1959). The real machine used a steering wheel and a moving road belt. <a href="https://www.youtube.com/watch?v=svQzx8OI8PQ" target="_blank" rel="noopener noreferrer">Original machine footage ↗</a>':'Inspired by <b>Cointronics Ball Walk</b> (1960s), a five-ball, twin-rail mechanical game. <a href="https://www.arcade-museum.com/Trade-Stim/ball-walk" target="_blank" rel="noopener noreferrer">Historical machine ↗</a>';
+if(which==='drive')newDrive();else newBall();draw();window.scrollTo({top:0,behavior:'instant'});}
+function reset(){if(state.mode==='drive')newDrive();if(state.mode==='ball')newBall();sound('click')}
+function scoreIfBest(which,n){if(n>high[which]){high[which]=Math.floor(n);storeSet('ema_high_'+which,high[which])}}
+function roadCenter(y,d){return 410+85*Math.sin((d+500-y*1.5)/170)+24*Math.sin((d+220-y*1.5)/66)}
+function updateDrive(dt){if(drive.ended)return;
+const left=state.keys.has('arrowleft')||state.keys.has('a')||state.holds.has('steerLeft');const right=state.keys.has('arrowright')||state.keys.has('d')||state.holds.has('steerRight');if(left!==right){drive.target=clamp(drive.target+(right?1:-1)*dt*.98,-1,1);$('steerSlider').value=String(drive.target)}
+drive.x=lerp(drive.x,410+drive.target*285,Math.min(1,dt*6));drive.dist+=dt*130;drive.time=Math.max(0,drive.time-dt);const center=roadCenter(387,drive.dist);const bad=Math.abs(drive.x-center)>124;drive.score+=dt*(bad?0:66);if(bad&&!drive.off){sound('fall');shake()}drive.off=bad;drive.flash=Math.max(0,drive.flash-dt);
+const check=Math.floor(drive.dist/1450);if(check>drive.checkpoint){drive.checkpoint=check;if(!bad){drive.score+=180;drive.flash=1.4;sound('point')}}
+if(drive.time<=0){drive.ended=true;scoreIfBest('drive',drive.score);sound('finish');setStatus('TIME! Your run is complete. Press RESET to try again.')}}
+function liftBall(){if(state.mode!=='ball'||ball.ended||ball.active)return;if(ball.used>=5)return;ball.active=true;ball.waiting=false;ball.progress=0.018;ball.gap=0.08;ball.target=0.08;ball.notice='Slowly OPEN the rods to climb, then CLOSE to reset your stroke.';$('gapSlider').value=8;$('spreadReadout').textContent='8% OPEN';sound('click');setStatus('Ball '+(ball.used+1)+' of 5. Open the rails smoothly, then close and repeat.');}
+function ballFall(won=false){if(!ball.active)return;ball.active=false;ball.waiting=true;ball.used++;
+const s=won?500:Math.min(400,Math.floor(clamp(ball.progress,0,.999)*5)*100);ball.lastScore=s;ball.score+=s;ball.won=ball.won||won;ball.flash=1.4;ball.notice=won?'JACKPOT! The bell rings. Your final total will be doubled.':`${s} POINTS — ball dropped into the collection pocket.`;
+if(won){sound('bell');shake()}else{sound(s?'point':'fall');if(!s)shake()}
+if(ball.used>=5){ball.ended=true;if(ball.won)ball.score*=2;scoreIfBest('ball',ball.score);ball.notice=`GAME OVER — ${ball.won?'bell bonus ×2! ':' '}FINAL: ${ball.score} POINTS`;setStatus(ball.notice+' Press RESET to play again.')}else setStatus(ball.notice+' Press LIFT BALL for the next.');}
+function updateBall(dt){ball.flash=Math.max(0,ball.flash-dt);if(!ball.active)return;
+if(state.holds.has('openRods')||state.keys.has('arrowright')||state.keys.has('d'))ball.target=clamp(ball.target+dt*.72,0,1);
+if(state.holds.has('closeRods')||state.keys.has('arrowleft')||state.keys.has('a'))ball.target=clamp(ball.target-dt*.9,0,1);
+$('gapSlider').value=String(Math.round(ball.target*100));$('spreadReadout').textContent=Math.round(ball.gap*100)+'% OPEN';
+const last=ball.gap;ball.gap=lerp(ball.gap,ball.target,Math.min(1,dt*5));const openDelta=Math.max(0,ball.gap-last);
+// A deliberately simplified rail-pumping skill model, not a claim of exact historical physics.
+const useful=clamp((ball.gap-.05)/.11,0,1)*clamp((.83-ball.gap)/.12,0,1);
+ball.progress+=openDelta*.34*useful;
+ball.progress-=dt*(.006+ball.gap*.01);
+ball.progress=clamp(ball.progress,0,1);
+if(ball.progress>=.999){ballFall(true);return}if(ball.gap>.865){ballFall(false);return}}
+function cabinet(title,sub,color){
+ctx.fillStyle='#171e23';ctx.fillRect(0,0,W,H);
+rr(18,10,784,520,26,grad(0,0,W,H,[[0,'#645442'],[.24,'#9a8058'],[.55,'#4c4035'],[1,'#9c7e55']]),'#c3a47b',3);
+for(let i=0;i<7;i++){line(24,27+i*72,794,14+i*72,'#ffffff06',2)}
+rr(43,26,734,72,13,grad(0,26,0,95,[[0,'#f4e7c4'],[1,'#d0bb8c']]),'#5a4331',4);
+rr(54,36,712,51,8,'#352b2a',color,2);
+text(title,410,69,33,'#f9e5b3','center','Georgia,serif');text(sub,410,87,10,'#c9d4be','center');
+rr(48,104,724,340,14,'#1d2625','#b48a57',5);
+// Corner screws
+for(const [x,y] of [[30,20],[790,20],[30,513],[790,513],[58,112],[762,112],[58,434],[762,434]]){circle(x,y,5,'#c8c3ae','#51463b',1);line(x-2,y+2,x+2,y-2,'#58564b',1)}
+}
+function drawDrive(){cabinet('MINI DRIVE','KASCO  •  1959  •  MECHANICAL DRIVING','#c29c5b');
+ctx.save();ctx.beginPath();ctx.roundRect(57,112,706,324,8);ctx.clip();ctx.fillStyle='#4b5c44';ctx.fillRect(57,112,706,324);
+// Scrolling field flecks, mechanically repeating scenery.
+for(let j=0;j<26;j++){const y=113+((j*53+drive.dist*.92)%430)-55;const x=(j%2?78:708)+Math.sin(j*4.2)*24;circle(x,y,10+(j%3)*3,'#384f3b');circle(x-4,y-4,4,'#728665')}
+const half=142;const poly=(offset,fill)=>{ctx.beginPath();for(let y=106;y<=444;y+=6){const x=roadCenter(y,drive.dist)+offset;if(y===106)ctx.moveTo(x,y);else ctx.lineTo(x,y)}for(let y=444;y>=106;y-=6){ctx.lineTo(roadCenter(y,drive.dist)-offset,y)}ctx.closePath();ctx.fillStyle=fill;ctx.fill()};
+poly(half+16,'#cbbd91');poly(half,'#596261');
+// A little repeated conveyor texture.
+for(let y=111;y<438;y+=8){const center=roadCenter(y,drive.dist);line(center-half+6,y,center+half-6,y,'#ffffff05',1)}
+for(let y=118;y<435;y+=4){const center=roadCenter(y,drive.dist);circle(center-half,y,.7,'#f5dbb5');circle(center+half,y,.7,'#f5dbb5')}
+for(let y=125;y<435;y+=7){const yy=y+((drive.dist*1.9)%78);if(yy>434)continue;if(Math.floor((yy-drive.dist*1.9)/36)%2===0){const cx=roadCenter(yy,drive.dist);line(cx,yy,cx,yy+6,'#e2d9b1',5)}}
+// Roadside distance posts.
+for(let i=0;i<9;i++){let y=108+((i*67+drive.dist*1.25)%340);const cx=roadCenter(y,drive.dist);rr(cx-half-42,y,18,26,3,'#ddbf80','#4f4b36',2);text(String(i%2?25:50),cx-half-33,y+17,10,'#4b4030','center')}
+const x=drive.x,y=387+Math.sin(drive.dist*.05)*1.6;
+ctx.save();ctx.translate(x,y);ctx.rotate(drive.target*.07);
+ctx.fillStyle='#141a1bb3';ctx.beginPath();ctx.ellipse(7,10,29,47,0,0,Math.PI*2);ctx.fill();
+// Toy car pointing to the top of the table.
+rr(-25,-45,50,90,16,grad(-24,0,24,0,[[0,'#6a302b'],[.22,'#d35f45'],[.68,'#b84638'],[1,'#64271f']]),'#e69a73',3);
+rr(-22,-29,44,27,7,'#213a40','#a8aca2',2);rr(-21,8,42,21,6,'#304951','#bdada0',2);
+rr(-26,-34,6,21,2,'#1a2425');rr(20,-34,6,21,2,'#1a2425');rr(-26,15,6,21,2,'#1a2425');rr(20,15,6,21,2,'#1a2425');
+rr(-19,-44,12,7,2,'#ffe5a7');rr(7,-44,12,7,2,'#ffe5a7');rr(-20,38,12,5,1,'#8b201f');rr(8,38,12,5,1,'#8b201f');
+line(0,-43,0,42,'#eaa57e66',2);
+ctx.restore();
+if(drive.off){ctx.fillStyle='#eb6e5040';ctx.fillRect(57,112,706,324);text('OFF ROAD!',410,184,28,'#fff0c9','center','Georgia,serif')}
+if(drive.flash>0)text('CHECKPOINT  +180',410,151,22,'#ffdf82','center');
+ctx.restore();
+rr(53,456,714,56,10,grad(0,456,0,514,[[0,'#2c3838'],[1,'#151c21']]),'#ba9863',2);
+text('ON ROAD',79,489,12,'#d9cdae');circle(156,485,8,drive.off?'#8c453d':'#8bd1a3');
+text('DISTANCE',255,483,10,'#a9b8ab');text(String(Math.floor(drive.dist/10)).padStart(4,'0'),255,502,18,'#e9cf85');
+text('TIME',535,483,10,'#a9b8ab');text(Math.ceil(drive.time)+'s',535,502,18,'#e9cf85');
+if(drive.ended){rr(185,205,450,120,12,'#19292bed','#f4d59d',3);text('TIME UP',410,250,39,'#f0d393','center','Georgia,serif');text('FINAL SCORE  '+format(drive.score),410,290,20,'#f7eee0','center')}
+}
+function drawBall(){cabinet('BALL WALK','COINTRONICS  •  1960s  •  FIVE BALL SKILL GAME','#ae8156');
+ctx.save();ctx.beginPath();ctx.roundRect(57,112,706,324,8);ctx.clip();ctx.fillStyle='#d6c7a4';ctx.fillRect(57,112,706,324);
+for(let y=120;y<435;y+=13)line(58,y,764,y,'#695d4630',1);
+// The playfield and scoring bins are an original, simplified top-down model.
+rr(78,128,665,296,8,grad(75,127,75,424,[[0,'#e8d8ae'],[1,'#b6a784']]),'#665745',4);
+rr(95,148,623,54,6,'#46392e','#b78a55',2);text('ROLL THE BALL UPHILL',409,183,27,'#efd99d','center','Georgia,serif');
+const start=132,end=686,middle=284,spread=13+ball.gap*44;
+const bins=[0,100,200,300,400,500];const binY=361;
+for(let i=0;i<6;i++){const bx=96+i*104;rr(bx,binY,100,51,4,i%2===0?'#ab9875':'#b9a783','#756247',2);text(String(bins[i]),bx+50,390,22,i===5?'#f8e6ac':'#51432e','center','Georgia,serif');}
+for(let i=0;i<5;i++){const xx=132+i*110;line(xx,326,xx,356,'#887c64',2)}
+text('SCORE POCKETS',110,345,11,'#735c40');text('JACKPOT',634,345,11,'#845230');
+rr(108,218,601,101,7,'#ad9973','#84745a',2);
+for(let i=0;i<13;i++)line(123+i*45,219,123+i*45,319,'#e7d5a547',1);
+// Mechanical twin rods, opening around a shared centerline.
+const top=middle-spread/2,bot=middle+spread/2;
+ctx.lineCap='round';line(start,top,end,top,grad(start,top,end,top,[[0,'#3f4143'],[.2,'#f6f8ed'],[.65,'#84909b'],[1,'#343e41']]),8);line(start,bot,end,bot,grad(start,bot,end,bot,[[0,'#3d4343'],[.2,'#fbfcf5'],[.65,'#84909b'],[1,'#343e41']]),8);
+line(start,top-2,end,top-2,'#fafffa99',2);line(start,bot-2,end,bot-2,'#fafffa99',2);
+// Pivot and handles in a diagrammatic overhead view.
+for(const p of [top,bot]){circle(132,p,9,'#4c4741','#f8ddad',2);circle(688,p,8,'#585b58','#f1efe0',2)}
+const bx=lerp(start+16,end-16,ball.progress);const by=middle-4+Math.sin(performance.now()*.004)*.6;
+if(ball.active){ctx.fillStyle='#333d3b57';ctx.beginPath();ctx.ellipse(bx+5,by+13,16,6,0,0,Math.PI*2);ctx.fill();const g=ctx.createRadialGradient(bx-6,by-8,2,bx,by,20);g.addColorStop(0,'#fff');g.addColorStop(.28,'#dae3df');g.addColorStop(.65,'#8e9b9d');g.addColorStop(1,'#323c40');circle(bx,by,17,g,'#414c4b',1);circle(bx-6,by-7,4,'#fff9')}
+text('LIFT',110,235,11,'#694632');text('→',166,231,18,'#6d5742');text('GOAL →',613,235,12,'#6d5742');
+if(ball.flash>0){rr(223,200,380,38,6,ball.lastScore===500?'#66502be0':'#6d4636db');text(ball.lastScore===500?'JACKPOT!  DING!':`+${ball.lastScore} POINTS`,414,227,23,'#f6dca6','center','Georgia,serif')}
+ctx.restore();
+rr(53,456,714,56,10,grad(0,455,0,514,[[0,'#2c3838'],[1,'#151c21']]),'#ba9863',2);
+text('BALLS',80,481,10,'#b7c2b3');for(let i=0;i<5;i++){circle(113+i*26,493,8,i<ball.used?'#4b5856':'#e6cf95','#6c6d61',1)}
+text('RAIL OPEN',332,482,10,'#b7c2b3');text(Math.round(ball.gap*100)+'%',332,502,18,ball.gap>.8?'#ef7d60':'#e8cb93');
+text('BELL BONUS',552,482,10,'#b7c2b3');text(ball.won?'×2 EARNED':'×2 AVAILABLE',552,501,17,ball.won?'#a6dec1':'#e5d39a');
+if(!ball.active){rr(180,224,460,99,9,'#1e292adf','#cfad74',2);if(ball.ended){text('GAME COMPLETE',410,261,28,'#f2d99b','center','Georgia,serif');text('TOTAL  '+ball.score,410,294,20,'#f4f2db','center')}else{text('LIFT THE NEXT BALL',410,264,27,'#f2d99b','center','Georgia,serif');text(`BALL ${ball.used+1} OF 5  •  PRESS LIFT BALL BELOW`,410,294,14,'#e5e5d7','center')}}
+}
+function draw(){ctx.clearRect(0,0,W,H);if(state.mode==='drive'&&drive)drawDrive();if(state.mode==='ball'&&ball)drawBall()}
+function hud(){if(state.mode==='drive'){ $('labelA').textContent='SCORE';$('valueA').textContent=format(drive.score);$('labelB').textContent='TIME LEFT';$('valueB').textContent=Math.ceil(drive.time)+'s';$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(drive.score,high.drive));if(!drive.ended&&drive.off)setStatus('OFF ROAD — steer back onto the roadway!');else if(!drive.ended&&drive.flash>0)setStatus('CHECKPOINT! +180 points');else if(!drive.ended)setStatus('Stay on the painted road to keep earning points.');}
+if(state.mode==='ball'){ $('labelA').textContent='TOTAL POINTS';$('valueA').textContent=format(ball.score);$('labelB').textContent='BALL';$('valueB').textContent=`${Math.min(5,ball.used+(ball.active?1:1))}/5`;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.ball,ball.score));if(ball.active)setStatus(`Ball ${ball.used+1}/5 · ${Math.round(ball.progress*100)}% uphill · Open, close, repeat. Don't spread past 85%.`);}}
+function tick(now){const dt=Math.min((now-(state.last||now))/1000,.045);state.last=now;if(state.mode==='drive'&&drive)updateDrive(dt);if(state.mode==='ball'&&ball)updateBall(dt);if(state.mode!=='library'){draw();hud()}requestAnimationFrame(tick)}
+function holdSetup(id){const node=$(id);const down=e=>{e.preventDefault();node.classList.add('pressed');state.holds.add(id);try{node.setPointerCapture(e.pointerId)}catch{}};const up=e=>{node.classList.remove('pressed');state.holds.delete(id)};node.addEventListener('pointerdown',down);node.addEventListener('pointerup',up);node.addEventListener('pointercancel',up);node.addEventListener('lostpointercapture',up)}
+['steerLeft','steerRight','closeRods','openRods'].forEach(holdSetup);
+$('steerSlider').addEventListener('input',e=>{if(drive)drive.target=Number(e.target.value)});
+$('gapSlider').addEventListener('input',e=>{if(ball)ball.target=Number(e.target.value)/100});
+cvs.addEventListener('pointerdown',e=>{if(state.mode==='library')return;try{cvs.setPointerCapture(e.pointerId)}catch{};onCanvasPoint(e)});
+cvs.addEventListener('pointermove',e=>{if(e.buttons||e.pressure>0)onCanvasPoint(e)});
+function onCanvasPoint(e){const r=cvs.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H;if(state.mode==='drive'&&drive&&!drive.ended){drive.target=clamp((x-410)/285,-1,1);$('steerSlider').value=drive.target}if(state.mode==='ball'&&ball&&ball.active){const v=clamp((x-145)/(690-145),0,1);ball.target=v;$('gapSlider').value=Math.round(v*100)}}
+document.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowleft','arrowright',' ','a','d','r'].includes(k)&&state.mode!=='library')e.preventDefault();state.keys.add(k);if(k===' '&&state.mode==='ball'&&!e.repeat)liftBall();if(k==='r'&&state.mode!=='library'&&!e.repeat)reset()});
+document.addEventListener('keyup',e=>state.keys.delete(e.key.toLowerCase()));
+window.addEventListener('blur',()=>{state.keys.clear();state.holds.clear();document.querySelectorAll('.bigcontrol').forEach(e=>e.classList.remove('pressed'))});
+document.querySelectorAll('[data-play]').forEach(el=>el.addEventListener('click',()=>{sound('click');modeTo(el.dataset.play)}));
+$('backBtn').addEventListener('click',()=>{sound('click');modeTo('library')});$('resetBtn').addEventListener('click',reset);
+$('liftBtn').addEventListener('click',liftBall);
+$('soundBtn').addEventListener('click',()=>{state.sound=!state.sound;storeSet('ema_sound',state.sound?'on':'off');$('soundBtn').textContent=state.sound?'♪ SOUND ON':'♪ SOUND OFF';$('soundBtn').setAttribute('aria-pressed',String(state.sound));if(state.sound)sound('click')});
+$('soundBtn').textContent=state.sound?'♪ SOUND ON':'♪ SOUND OFF';$('soundBtn').setAttribute('aria-pressed',String(state.sound));
+$('fullscreenBtn').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen()}catch{setStatus('Fullscreen is unavailable in this browser. The game still works normally.')}});
+document.addEventListener('fullscreenchange',()=>{$('fullscreenBtn').textContent=document.fullscreenElement?'⛶ EXIT FULLSCREEN':'⛶ FULLSCREEN'});
+updateHigh();requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
