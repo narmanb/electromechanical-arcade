@@ -51,11 +51,33 @@
  .controlbox{padding:5px 7px}.control-title{margin:0 0 2px}
  .ball-bottom .btn{min-height:36px}
 }
+
+/* Three new mechanical cabinets: wholly CSS/canvas-drawn, no external artwork. */
+.craneart{background:repeating-linear-gradient(90deg,#4b3123 0 11px,#5d3b28 11px 22px);}
+.craneart:before{content:"";position:absolute;width:65%;height:88%;border:10px solid #ad8048;box-shadow:inset 0 0 0 7px #233b3a,0 0 0 2px #c8a168;background:linear-gradient(90deg,#365c59,#162727,#365c59);border-radius:9px;}
+.craneart:after{content:"⚓";font-size:82px;color:#e9bd6e;position:relative;text-shadow:0 6px 2px #10171699;}
+.bowlart{background:repeating-linear-gradient(90deg,#c9a771 0 25px,#bd9c6b 25px 30px);}
+.bowlart:before{content:"";width:68%;height:190px;transform:perspective(180px) rotateX(23deg);background:repeating-linear-gradient(90deg,transparent 0 20px,#986b3f40 20px 22px),#ecd4a3;border:11px solid #856245;box-shadow:0 14px 9px #241e1c66;}
+.bowlart:after{content:"🎳";position:absolute;font-size:76px;filter:drop-shadow(3px 5px 1px #32231c);}
+.switchart{background:repeating-linear-gradient(0deg,#334a4b 0 22px,#4f6865 22px 25px);}
+.switchart:before{content:"";height:72%;width:76%;border:11px solid #8f7550;background:repeating-linear-gradient(0deg,transparent 0 35px,#d3b277 35px 39px,transparent 39px 54px),linear-gradient(105deg,#224340,#3c615d);transform:rotate(-4deg);}
+.switchart:after{content:"⚙";position:absolute;color:#f2c66f;font-size:77px;filter:drop-shadow(5px 5px 1px #112622);}
+#craneControls .controls-row{gap:6px}#craneControls .bigcontrol{min-width:0;padding:7px 4px;font-size:12px}
+#craneControls .controlhint,#bowlControls .controlhint,#switchControls .controlhint{margin-bottom:8px}
+#bowlControls input[type=range]{flex:1;min-width:65px}
+#switchControls .bigcontrol{font-size:12px;min-width:0;padding:8px 4px}
+#switchControls .bigcontrol.selected{background:#cba861;color:#1e292a;box-shadow:inset 0 0 0 3px #f8dc8b}
+#bowlCharge{min-height:54px}
+@media (orientation:landscape) and (min-width:630px) and (max-height:780px){
+ #craneControls .bigcontrol,#switchControls .bigcontrol{min-height:38px;font-size:10px}
+ #bowlCharge{min-height:42px}
+ #craneControls .controls-row{gap:4px}
+}
 </style>
 </head>
 <body>
 <div class="page">
-<header class="mast"><div class="wordmark"><div class="emblem" aria-hidden="true">⚙</div><div class="brandtext">ELECTROMECHANICAL<span>ARCADE</span></div></div><div class="tag">PROTOTYPE · v0.4</div></header>
+<header class="mast"><div class="wordmark"><div class="emblem" aria-hidden="true">⚙</div><div class="brandtext">ELECTROMECHANICAL<span>ARCADE</span></div></div><div class="tag">PROTOTYPE · v0.5</div></header>
 <main>
 <section id="library">
 <div class="hero"><p class="kicker">Before pixels, there were moving parts</p><h1>The arcade before<br>the video game.</h1><p>A small, playable tribute to mechanical and electromechanical amusement machines. Miniature models, moving roads, steel balls, relays and the stubborn ingenuity of an era before screens ran the show.</p><div class="ornament"></div></div>
@@ -66,6 +88,9 @@
 <article class="gamecard"><div class="card-art courseart" aria-hidden="true"></div><div class="card-body"><div class="eyebrow">Inspired by 1979 obstacle toys</div><h2>Marble Mechanica</h2><p>Original four-station obstacle course inspired by Screwball Scramble. Operate a spring launcher, balance a marble at the center of a teetering bridge, survive timed jumping pads, and align a rotary gate.</p><div class="card-foot"><span class="high" id="libraryCourseHigh">BEST 00000</span><button class="btn" data-play="course">Play machine</button></div></div></article>
 <article class="gamecard"><div class="card-art mazeart" aria-hidden="true"></div><div class="card-body"><div class="eyebrow">Inspired by the 1946 wooden classic</div><h2>Tilt Labyrinth</h2><p>Use two virtual tilt knobs, or drag the board, to roll a steel marble through a wooden maze. Avoid holes and hit the brass goal.</p><div class="card-foot"><span class="high" id="libraryMazeHigh">BEST 00000</span><button class="btn" data-play="maze">Play machine</button></div></div></article>
 <article class="gamecard"><div class="card-art bearart" aria-hidden="true"><div class="bearforest"></div><div class="bearshape">🐻</div></div><div class="card-body"><div class="eyebrow">Seeburg · 1949 · Rifle gallery</div><h2>Shoot the Bear</h2><p>A moving mechanical bear crosses a painted forest. Aim the light rifle, fire, and score bonus targets when the bear rears up. 20 shots.</p><div class="card-foot"><span class="high" id="libraryBearHigh">BEST 00000</span><button class="btn" data-play="bear">Play machine</button></div></div></article>
+<article class="gamecard"><div class="card-art craneart" aria-hidden="true"></div><div class="card-body"><div class="eyebrow">Inspired by 1933 traveling cranes · Prize skill</div><h2>Electric Crane</h2><p>Position a suspended claw over rotating prizes. Time the descent, grip a prize, and deliver it to the chute. Five mechanical drops per round.</p><div class="card-foot"><span class="high" id="libraryCraneHigh">BEST 00000</span><button class="btn" data-play="crane">Play machine</button></div></div></article>
+<article class="gamecard"><div class="card-art bowlart" aria-hidden="true"></div><div class="card-body"><div class="eyebrow">Williams · 1957/58 · Miniature bowling</div><h2>Ten Strike</h2><p>Aim a little manikin bowler and wind his spring release. Find the off-center strike pocket while clearing five miniature bowling frames.</p><div class="card-foot"><span class="high" id="libraryBowlHigh">BEST 00000</span><button class="btn" data-play="bowl">Play machine</button></div></div></article>
+<article class="gamecard"><div class="card-art switchart" aria-hidden="true"></div><div class="card-body"><div class="eyebrow">Original concept · Relay sorting machine</div><h2>Relay Switchyard</h2><p>Throw electromechanical switches to send colored parcels into matching chutes. The belt speeds up, packages bunch together, and mistakes cost fuses.</p><div class="card-foot"><span class="high" id="librarySwitchHigh">BEST 00000</span><button class="btn" data-play="switch">Play machine</button></div></div></article>
 </div>
 <div class="panel-note"><strong>About this prototype:</strong> All artwork and obstacle layouts are original. Rail games use position-dependent gravity, inertia and contact geometry; static rod openings cannot simply cruise to the jackpot. Obstacle timing, balance, and tilt visuals are also improved. This is not a licensed recreation or laboratory-perfect simulation. No downloads, accounts or network connection are needed. The game works offline after the HTML file is saved on your device.</div>
 </section>
@@ -78,6 +103,9 @@
 <div id="courseControls" class="controlbox" hidden><p class="control-title" id="courseControlTitle">Spring launcher</p><p class="controlhint" id="courseHelp">Hold to compress the spring, release to launch at the right strength.</p><div class="controls-row"><button class="btn bigcontrol" id="courseA">HOLD SPRING</button><button class="btn btn-alt bigcontrol" id="courseB">RELEASE</button></div><div class="ball-bottom"><span id="courseReadout">Stage 1 of 4</span><button class="btn btn-sm" id="courseRetry">↻ RESTART STAGE</button></div></div>
 <div id="mazeControls" class="controlbox" hidden><p class="control-title">Two tilt knobs</p><p class="controlhint">Drag the board to tilt it (hold to sustain the angle), or use the two sliders / arrow keys. Release to level the board.</p><label class="sliderlabel" for="tiltX">HORIZONTAL TILT</label><input id="tiltX" type="range" min="-100" max="100" value="0" step="1"><label class="sliderlabel" for="tiltY">VERTICAL TILT</label><input id="tiltY" type="range" min="-100" max="100" value="0" step="1"><div class="ball-bottom"><span id="mazeReadout">0 falls · 0% tilt</span><button id="mazeLevel" class="btn btn-sm">LEVEL BOARD</button></div></div>
 <div id="bearControls" class="controlbox" hidden><p class="control-title">Ray-O-Lite rifle</p><p class="controlhint">Drag to aim and release to fire, or position the crosshair and press FIRE. Hit the running bear to make it rear up; hit its lit sensors for bonuses. 20 shots.</p><div class="controls-row"><button class="btn bigcontrol" id="fireBtn" aria-label="Fire the rifle">◎ FIRE</button><span class="sliderlabel">DRAG CROSSHAIR<br>RELEASE TO FIRE</span></div></div>
+<div id="craneControls" class="controlbox" hidden><p class="control-title">Crane wheel and boom</p><p class="controlhint">Drag the targeting ring on the playfield, or hold the four direction buttons. The prizes keep turning while you aim. Tap DROP for one of five attempts.</p><div class="controls-row"><button id="craneLeft" class="btn btn-alt bigcontrol">◀ LEFT</button><button id="craneRight" class="btn btn-alt bigcontrol">RIGHT ▶</button><button id="craneUp" class="btn btn-alt bigcontrol">▲ BACK</button><button id="craneDown" class="btn btn-alt bigcontrol">▼ FRONT</button></div><div class="ball-bottom"><span id="craneReadout">Five drops · moving prizes</span><button id="craneDrop" class="btn btn-sm">▼ DROP CLAW</button></div></div>
+<div id="bowlControls" class="controlbox" hidden><p class="control-title">Bowler's aim and release</p><p class="controlhint">Steer the mechanical bowler with the AIM slider, then HOLD the release to wind the spring. Let go when the gauge is in the gold zone. Two rolls per frame, except for a strike.</p><div class="controls-row"><span class="sliderlabel">AIM ◀</span><input id="bowlAim" type="range" min="-100" max="100" value="0" step="1" aria-label="Bowling aim"><span class="sliderlabel">▶ AIM</span></div><div class="controls-row"><button id="bowlCharge" class="btn bigcontrol">HOLD TO WIND / RELEASE</button></div><div class="ball-bottom"><span id="bowlReadout">FRAME 1/5 · ROLL 1/2</span><span class="sliderlabel">SPACE = RELEASE</span></div></div>
+<div id="switchControls" class="controlbox" hidden><p class="control-title">Three relay switches</p><p class="controlhint">Watch the stamp on each moving parcel. Select its matching chute before it reaches the sorter. Three blown fuses ends the round.</p><div class="controls-row"><button id="switchRed" class="btn btn-alt bigcontrol">▲ RED</button><button id="switchGold" class="btn btn-alt bigcontrol">● GOLD</button><button id="switchBlue" class="btn btn-alt bigcontrol">■ BLUE</button></div><div class="ball-bottom"><span id="switchReadout">12 parcels · 3 fuses</span><button id="switchStart" class="btn btn-sm">▶ START BELT</button></div></div>
 <div class="statusline" id="status" role="status" aria-live="polite"></div></div></div>
 <div class="history" id="history"></div>
 </section>
@@ -92,8 +120,8 @@ const state={mode:'library',sound:true,last:0,keys:new Set(),holds:new Set(),act
 function storeGet(key){try{return localStorage.getItem(key)}catch{return null}}
 function storeSet(key,value){try{localStorage.setItem(key,String(value))}catch{}}
 state.sound=storeGet('ema_sound')!=='off';
-const high={drive:Number(storeGet('ema_high_drive'))||0,ball:Number(storeGet('ema_high_ball'))||0,bear:Number(storeGet('ema_high_bear'))||0,moon:Number(storeGet('ema_high_moon'))||0,course:Number(storeGet('ema_high_course'))||0,maze:Number(storeGet('ema_high_maze'))||0};
-let drive,ball,moon,bear,course,maze;
+const high={drive:Number(storeGet('ema_high_drive'))||0,ball:Number(storeGet('ema_high_ball'))||0,bear:Number(storeGet('ema_high_bear'))||0,moon:Number(storeGet('ema_high_moon'))||0,course:Number(storeGet('ema_high_course'))||0,maze:Number(storeGet('ema_high_maze'))||0,crane:Number(storeGet('ema_high_crane'))||0,bowl:Number(storeGet('ema_high_bowl'))||0,switch:Number(storeGet('ema_high_switch'))||0};
+let drive,ball,moon,bear,course,maze,crane,bowl,sorter;
 const railMode=()=>state.mode==='ball'||state.mode==='moon';
 const railState=()=>state.mode==='moon'?moon:ball;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;
@@ -105,7 +133,7 @@ function grad(x,y,xx,yy,stops){const g=ctx.createLinearGradient(x,y,xx,yy);for(c
 function circle(x,y,r,fill,stroke=null,lw=1){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw;ctx.stroke()}}
 function sound(type){if(!state.sound)return;try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const a=state.actx||(state.actx=new C());if(a.state==='suspended')a.resume();const now=a.currentTime;const tone=(freq,duration,volume,wave='sine',start=0,end=freq)=>{const osc=a.createOscillator(),gain=a.createGain();osc.type=wave;osc.frequency.setValueAtTime(freq,now+start);osc.frequency.exponentialRampToValueAtTime(Math.max(1,end),now+start+duration);gain.gain.setValueAtTime(volume,now+start);gain.gain.exponentialRampToValueAtTime(.0001,now+start+duration);osc.connect(gain);gain.connect(a.destination);osc.start(now+start);osc.stop(now+start+duration+.01)};if(type==='click')tone(280,.055,.025,'triangle',0,120);if(type==='point'){tone(720,.1,.035,'sine');tone(960,.18,.028,'sine',.09)}if(type==='fall')tone(105,.42,.08,'sawtooth',0,42);if(type==='bell'){tone(880,.95,.085,'sine');tone(1320,.9,.035,'sine',.015);tone(1760,.8,.018,'sine',.03)}if(type==='shot'){tone(260,.12,.07,'sawtooth',0,65);tone(65,.16,.035,'triangle')}if(type==='growl'){tone(84,.37,.065,'sawtooth',0,53)}if(type==='finish'){tone(480,.15,.045,'triangle');tone(640,.17,.045,'triangle',.15);tone(880,.3,.06,'triangle',.3)}}catch{}}
 function shake(){try{if(navigator.vibrate)navigator.vibrate(40)}catch{}}
-function updateHigh(){ $('libraryDriveHigh').textContent='BEST '+format(high.drive);$('libraryBallHigh').textContent='BEST '+format(high.ball);$('libraryBearHigh').textContent='BEST '+format(high.bear);$('libraryMoonHigh').textContent='BEST '+format(high.moon);$('libraryCourseHigh').textContent='BEST '+format(high.course);$('libraryMazeHigh').textContent='BEST '+format(high.maze)}
+function updateHigh(){ $('libraryDriveHigh').textContent='BEST '+format(high.drive);$('libraryBallHigh').textContent='BEST '+format(high.ball);$('libraryBearHigh').textContent='BEST '+format(high.bear);$('libraryMoonHigh').textContent='BEST '+format(high.moon);$('libraryCourseHigh').textContent='BEST '+format(high.course);$('libraryMazeHigh').textContent='BEST '+format(high.maze);$('libraryCraneHigh').textContent='BEST '+format(high.crane);$('libraryBowlHigh').textContent='BEST '+format(high.bowl);$('librarySwitchHigh').textContent='BEST '+format(high.switch)}
 function setStatus(s){$('status').textContent=s}
 function newDrive(){drive={time:75,score:0,dist:0,target:0,x:410,off:false,ended:false,flash:0,checkpoint:0};$('steerSlider').value='0';setStatus('Steer through the bends. Score rises only while you stay on the road.');}
 // Rod geometry in meters: hinged at the left, adjustable at the right.
@@ -137,22 +165,25 @@ function buildMaze(){const cols=MZ.cols,rows=MZ.rows,cells=Array.from({length:co
  return {cells,route,routeOrder,holes,walls,start,goal};}
 const mazeMap=buildMaze();
 function newMaze(){maze={x:MZ.x+MZ.size*.5,y:MZ.y+(MZ.rows-.5)*MZ.size,vx:0,vy:0,tx:0,ty:0,targetX:0,targetY:0,elapsed:0,falls:0,score:0,finished:false,flash:0,pointer:null};$('tiltX').value='0';$('tiltY').value='0';setStatus('Roll the steel ball through the maze. The board now visibly tips as you tilt it.');}
-const gameNames={drive:'MINI DRIVE',ball:'BALL WALK',moon:'SHOOT THE MOON',course:'MARBLE MECHANICA',maze:'TILT LABYRINTH',bear:'SHOOT THE BEAR'};
+const gameNames={drive:'MINI DRIVE',ball:'BALL WALK',moon:'SHOOT THE MOON',course:'MARBLE MECHANICA',maze:'TILT LABYRINTH',bear:'SHOOT THE BEAR',crane:'ELECTRIC CRANE',bowl:'TEN STRIKE',switch:'RELAY SWITCHYARD'};
 const histories={
  drive:'Inspired by <b>Kasco Mini Drive</b> (1959): a miniature moving road and steering wheel.',
  ball:'Inspired by <b>Cointronics Ball Walk</b> (1960s): five steel balls and scoring pockets. <a href="https://www.arcade-museum.com/Trade-Stim/ball-walk" target="_blank" rel="noopener noreferrer">Museum reference ↗</a>',
  moon:'Inspired by the classic <b>Shoot the Moon</b> wooden dexterity game. Rod physics approximate the rolling model, not laboratory-perfect dynamics. <a href="https://open.clemson.edu/all_theses/1209/" target="_blank" rel="noopener noreferrer">Engineering thesis ↗</a>',
  course:'An <b>original four-mechanism obstacle course</b> inspired by the play style of TOMY Screwball Scramble (1979). Not an official recreation; obstacle geometry and artwork are original.',
  maze:'Original wooden marble maze inspired by the 1946 <b>BRIO Labyrinth</b> concept. The maze pattern is newly generated, not copied from a retail board.',
- bear:'Inspired by <b>Seeburg Shoot the Bear</b> (1949), a moving forest rifle gallery. <a href="https://www.arcade-museum.com/Arcade/shoot-the-bear" target="_blank" rel="noopener noreferrer">Museum reference ↗</a>'
+ bear:'Inspired by <b>Seeburg Shoot the Bear</b> (1949), a moving forest rifle gallery. <a href="https://www.arcade-museum.com/Arcade/shoot-the-bear" target="_blank" rel="noopener noreferrer">Museum reference ↗</a>',
+ crane:'Inspired by International Mutoscope\'s <b>Electric Traveling Crane</b> (c.1933) and other vintage diggers. A simplified overhead miniature prize grabber, not an exact replica. <a href="https://www.thehenryford.org/collections/explore/artifact/255525" target="_blank" rel="noopener noreferrer">Henry Ford Museum ↗</a>',
+ bowl:'Inspired by <b>Williams Ten Strike</b> (1957/58), whose player-controlled miniature bowler launched small balls at pins. Our five-frame version has original simplified collision rules. <a href="https://www.arcade-museum.com/Arcade/ten-strike--williams--1958--5995" target="_blank" rel="noopener noreferrer">Museum reference ↗</a>',
+ switch:'An entirely <b>original</b> imaginary 1950s electromechanical relay sorter. Control three diverter switches before parcels reach the sensor gate; combo multipliers reward accurate sorting.'
 };
 function modeTo(which){state.mode=which;$('library').hidden=which!=='library';$('player').hidden=which==='library';if(which==='library'){updateHigh();return}
- $('machineName').textContent=gameNames[which];for(const id of ['drive','ball','bear','course','maze'])$(id+'Controls').hidden=!(id===which||(id==='ball'&&which==='moon'));
+ $('machineName').textContent=gameNames[which];for(const id of ['drive','ball','bear','course','maze','crane','bowl','switch'])$(id+'Controls').hidden=!(id===which||(id==='ball'&&which==='moon'));
  $('history').innerHTML=histories[which];$('ballTip').textContent=which==='moon'?'TIP: Gradual opening starts it; close to climb, then open to drop.':'TIP: Move the rods while the ball climbs. Avoid a wide gap.';
  $('ballHint').innerHTML=which==='moon'?'<b>Shoot the Moon:</b> the wooden board faces uphill. Build momentum by adjusting the hinged rods; open at the cup you want.':'<b>Ball Walk:</b> begin with a moderate spread and narrow the rods as the ball climbs. Holding a single opening will usually stall or drop the ball.';
- if(which==='drive')newDrive();else if(which==='ball')newBall();else if(which==='moon')newMoon();else if(which==='bear')newBear();else if(which==='course')newCourse();else if(which==='maze')newMaze();draw();window.scrollTo({top:0,behavior:'instant'});
+ if(which==='drive')newDrive();else if(which==='ball')newBall();else if(which==='moon')newMoon();else if(which==='bear')newBear();else if(which==='course')newCourse();else if(which==='maze')newMaze();else if(which==='crane')newCrane();else if(which==='bowl')newBowl();else if(which==='switch')newSwitch();draw();window.scrollTo({top:0,behavior:'instant'});
 }
-function reset(){if(state.mode==='drive')newDrive();if(state.mode==='ball')newBall();if(state.mode==='moon')newMoon();if(state.mode==='bear')newBear();if(state.mode==='course')newCourse();if(state.mode==='maze')newMaze();sound('click')}
+function reset(){if(state.mode==='drive')newDrive();if(state.mode==='ball')newBall();if(state.mode==='moon')newMoon();if(state.mode==='bear')newBear();if(state.mode==='course')newCourse();if(state.mode==='maze')newMaze();if(state.mode==='crane')newCrane();if(state.mode==='bowl')newBowl();if(state.mode==='switch')newSwitch();sound('click')}
 function scoreIfBest(which,n){if(n>high[which]){high[which]=Math.floor(n);storeSet('ema_high_'+which,high[which])}}
 function roadCenter(y,d){return 410+85*Math.sin((d+500-y*1.5)/170)+24*Math.sin((d+220-y*1.5)/66)}
 function updateDrive(dt){if(drive.ended)return;
@@ -501,28 +532,168 @@ function drawMaze(){cabinet('TILT LABYRINTH','WOODEN TILT-BOARD  •  TWO AXIS K
  if(maze.finished){rr(184,231,452,100,9,'#213e35f0','#efc784',3);text('YOU REACHED THE FINISH!',410,272,25,'#fae8b8','center','Georgia,serif');text(`${Math.max(0,Math.floor(maze.score))} POINTS`,410,306,20,'#f6dcab','center')}
 }
 
-function draw(){ctx.clearRect(0,0,W,H);if(state.mode==='drive'&&drive)drawDrive();if(railMode()&&railState())drawRails();if(state.mode==='bear'&&bear)drawBear();if(state.mode==='course'&&course)drawCourse();if(state.mode==='maze'&&maze)drawMaze()}
+// ---- ELECTRIC TRAVELING CRANE ----
+function cranePrizeXY(p){const a=p.angle+crane.turn;return {x:410+Math.cos(a)*160,y:308+Math.sin(a)*68};}
+function newCrane(){crane={x:415,y:310,turn:0,used:0,max:5,score:0,phase:'ready',phaseTime:0,held:null,finished:false,flash:0,notice:'Position the boom, then drop the claw as a prize rolls beneath it.',prizes:Array.from({length:8},(_,i)=>({angle:i*Math.PI/4,value:[120,160,250,180,320,210,450,140][i],radius:[19,20,18,23,16,20,16,22][i],color:['#bc5750','#cdb75e','#4b9a8d','#b17ca2','#deb366','#82a1cd','#d77e5c','#77aaa1'][i],taken:false}))};$('craneReadout').textContent='5 drops left · rotating prizes';setStatus(crane.notice);}
+function craneDrop(){if(state.mode!=='crane'||!crane||crane.phase!=='ready')return;crane.phase='lowering';crane.phaseTime=0;crane.held=null;crane.used++;sound('click');setStatus('The crane lowers into the rotating prize well…');}
+function updateCrane(dt){if(crane.finished)return;crane.turn+=dt*.47;crane.flash=Math.max(0,crane.flash-dt);
+ if(crane.phase==='ready'){
+ const dx=Number(state.holds.has('craneRight')||state.keys.has('arrowright'))-Number(state.holds.has('craneLeft')||state.keys.has('arrowleft'));
+ const dy=Number(state.holds.has('craneDown')||state.keys.has('arrowdown'))-Number(state.holds.has('craneUp')||state.keys.has('arrowup'));
+ crane.x=clamp(crane.x+dx*160*dt,150,668);crane.y=clamp(crane.y+dy*120*dt,196,414);
+ } else {
+ crane.phaseTime+=dt;
+ if(crane.phase==='lowering'&&crane.phaseTime>=.78){
+ let best=null,dist=1e9;for(const p of crane.prizes){if(p.taken)continue;const q=cranePrizeXY(p),d=Math.hypot(q.x-crane.x,(q.y-crane.y)*1.24);if(d<dist){best=p;dist=d}}
+ crane.held=best&&dist<best.radius+14?best:null;
+ if(crane.held){crane.held.taken=true;crane.notice=`GOT ONE · ${crane.held.value} POINT PRIZE`;sound('point');}else{crane.notice='MISSED THE PRIZE!';sound('fall');}
+ crane.phase='lifting';crane.phaseTime=0;
+ }
+ else if(crane.phase==='lifting'&&crane.phaseTime>=.8){crane.phase='delivery';crane.phaseTime=0}
+ else if(crane.phase==='delivery'&&crane.phaseTime>=.64){if(crane.held){crane.score+=crane.held.value;crane.flash=1.0;sound('bell')}
+ crane.held=null;crane.phaseTime=0;if(crane.used>=crane.max){crane.phase='finished';crane.finished=true;scoreIfBest('crane',crane.score);crane.notice=`CRANE PARKED · ${crane.score} POINTS · RESET TO REPLAY`;sound('finish');}else{crane.phase='ready';}
+ setStatus(crane.notice);
+ }
+ }
+ $('craneReadout').textContent=`${crane.max-crane.used} drops left · ${crane.phase==='ready'?'ready to drop':crane.phase==='finished'?'game complete':'crane moving'}`;
+}
+function drawCrane(){cabinet('ELECTRIC CRANE','1930s  •  ROTATING PRIZES  •  FIVE DROPS','#b98857');
+ ctx.save();ctx.beginPath();ctx.roundRect(57,112,706,325,8);ctx.clip();rr(58,113,704,323,0,grad(60,112,750,436,[[0,'#3d655b'],[.5,'#253d3d'],[1,'#142c2c']]));
+ for(let i=0;i<14;i++){line(70+i*50,119,70+i*50,429,'#d6c28c20',1)}
+ // Mechanical turntable and its brass prize tracks.
+ ctx.save();ctx.translate(410,309);ctx.scale(1,.48);circle(0,0,244,'#1a2a2a','#b08c55',15);circle(0,0,212,'#455a52','#edd39c',9);circle(0,0,184,'#3d4c46','#856d48',5);circle(0,0,147,'#273b38','#b29b6b',2);for(let a=0;a<24;a++){let t=crane.turn+a*Math.PI/12;line(Math.cos(t)*198,Math.sin(t)*198,Math.cos(t)*209,Math.sin(t)*209,'#efcf8d',5)}ctx.restore();
+ for(const p of [...crane.prizes].sort((a,b)=>cranePrizeXY(a).y-cranePrizeXY(b).y)){
+ if(p.taken)continue;let q=cranePrizeXY(p);circle(q.x+4,q.y+9,p.radius,'#0d1f1d83');rr(q.x-p.radius,q.y-p.radius,p.radius*2,p.radius*2,5,p.color,'#ffe8ae',2);circle(q.x,q.y,p.radius*.46,'#f7dca8b5','#684e3c',1);text(String(p.value),q.x,q.y+3,10,'#2a3030','center');}
+ // Overhead gantry and telescoping shaft.
+ rr(103,134,617,21,3,'#7e7770','#e6c588',3);for(let x=130;x<709;x+=36)line(x,137,x,153,'#d6ae75',2);
+ const z=crane.phase==='lowering'?Math.min(1,crane.phaseTime/.78):crane.phase==='lifting'?Math.max(0,1-crane.phaseTime/.8):crane.phase==='delivery'?0:0;
+ const cx=crane.phase==='delivery'?lerp(crane.x,687,Math.min(1,crane.phaseTime/.64)):crane.x;
+ const cy=crane.phase==='delivery'?lerp(crane.y,400,Math.min(1,crane.phaseTime/.64)):crane.y;
+ const hookY=cy-53+z*43;
+ line(cx,151,cx,hookY,'#d4d8c5',4);line(cx+3,151,cx+3,hookY,'#4b5049',2);rr(cx-23,137,46,19,5,'#a6855a','#f1d397',2);
+ circle(cx,hookY,11,'#c9b49a','#523f30',3);line(cx-7,hookY+6,cx-22-(1-z)*7,hookY+23,'#cfd4ca',5);line(cx+7,hookY+6,cx+22+(1-z)*7,hookY+23,'#cfd4ca',5);
+ if(crane.held){rr(cx-crane.held.radius,hookY+16,crane.held.radius*2,crane.held.radius*2,5,crane.held.color,'#f8dca9',3);}
+ if(crane.phase==='ready'){circle(crane.x,crane.y,28,'#ffffff05','#f5dca6',2);line(crane.x-36,crane.y,crane.x-17,crane.y,'#f2daa0',2);line(crane.x+17,crane.y,crane.x+36,crane.y,'#f2daa0',2);line(crane.x,crane.y-36,crane.x,crane.y-17,'#f2daa0',2);line(crane.x,crane.y+17,crane.x,crane.y+36,'#f2daa0',2);}
+ rr(644,377,90,49,5,'#563d2a','#e4b66d',4);text('PRIZE',688,397,13,'#ebcc8e','center');text('CHUTE',688,414,12,'#f3dea9','center');
+ ctx.restore();rr(53,456,714,56,10,'#293a34','#d4ad73',2);text('DROPS',83,481,10,'#e7d1a4');text(`${crane.used} / ${crane.max}`,83,501,19,'#ffe4ac');text('PRIZES LEFT',327,481,10,'#e7d1a4');text(String(crane.prizes.filter(x=>!x.taken).length),327,501,19,'#ffe4ac');text('SCORE',567,481,10,'#e7d1a4');text(format(crane.score),567,501,19,'#ffe4ac');
+ if(crane.finished){rr(177,228,466,100,10,'#24302cf4','#f5d399',3);text('CRANE PARKED',410,267,30,'#f4d8a4','center','Georgia,serif');text(`${crane.score} POINTS`,410,305,21,'#f6e9c8','center');}}
+
+// ---- WILLIAMS TEN STRIKE-INSPIRED MINIATURE BOWLING ----
+function makeBowlPins(){const pins=[];for(let row=0;row<4;row++)for(let i=0;i<=row;i++){pins.push({x:410+(i-row/2)*33,y:277-row*24,down:false,fall:0,angle:(i-row/2)*.23})}return pins;}
+function newBowl(){bowl={frame:0,roll:0,score:0,aim:0,power:0,dir:1,charging:false,phase:'ready',phaseTime:0,ball:null,pins:makeBowlPins(),knockedThisThrow:0,flash:0,note:'Aim the figurine, wind the spring, then release in the gold band.',finished:false};$('bowlAim').value='0';$('bowlReadout').textContent='FRAME 1/5 · ROLL 1/2';setStatus(bowl.note);}
+function bowlWind(){if(state.mode!=='bowl'||!bowl||bowl.phase!=='ready'||bowl.charging)return;bowl.charging=true;setStatus('The bowler winds the spring. Release near the golden zone.');}
+function bowlRelease(){if(state.mode!=='bowl'||!bowl||!bowl.charging||bowl.phase!=='ready')return;bowl.charging=false;bowl.phase='rolling';bowl.phaseTime=0;const speed=210+bowl.power*270;bowl.ball={x:410,y:408,vx:bowl.aim*(68+bowl.power*26),vy:-speed};bowl.knockedThisThrow=0;sound('click');setStatus('The little bowler has released the ball…');}
+function bowlResolveImpact(){const power=bowl.power,ball=bowl.ball,center=ball?.x||410;const straight=Math.abs(center-410);
+ let knocked=0;
+ const strike=Math.abs(center-398)<9&&power>=.70&&power<.93;
+ for(const p of bowl.pins){if(p.down)continue;const row=Math.round((277-p.y)/24);const deviation=Math.abs(p.x-(center+(center-410)*row*.38));const cone=12+power*(9+row*10);
+ const hit=strike||(power>.22&&deviation<cone&&(row===0||straight<36+row*15));
+ if(hit){p.down=true;p.fall=.1+row*.075+Math.random()*.09;knocked++;}
+ }
+ bowl.knockedThisThrow=knocked;if(knocked){sound('point');bowl.flash=.8;}else sound('fall');
+}
+function bowlFinishRoll(){const left=bowl.pins.filter(p=>!p.down).length;const gone=10-left;
+ let note;if(bowl.roll===0&&left===0){bowl.score+=30;note='STRIKE! +30';}
+ else if(bowl.roll===1){if(left===0){bowl.score+=20;note='SPARE! +20'}else {bowl.score+=gone;note=`${gone} PINS · +${gone}`}}
+ else{bowl.roll=1;bowl.phase='ready';bowl.power=0;bowl.dir=1;bowl.ball=null;bowl.note=`${10-left} pins down. Set your second shot.`;setStatus(bowl.note);return;}
+ bowl.flash=1.3;bowl.note=note;bowl.frame++;bowl.roll=0;bowl.ball=null;bowl.power=0;bowl.dir=1;
+ if(bowl.frame>=5){bowl.phase='finished';bowl.finished=true;scoreIfBest('bowl',bowl.score);bowl.note=`BOWLING COMPLETE · ${bowl.score} POINTS · RESET TO REPLAY`;sound('finish');}
+ else{bowl.pins=makeBowlPins();bowl.phase='ready';sound('bell');}
+ setStatus(bowl.note);
+}
+function updateBowl(dt){bowl.flash=Math.max(0,bowl.flash-dt);
+ if(bowl.charging&&bowl.phase==='ready'){bowl.power+=dt*.78*bowl.dir;if(bowl.power>=1){bowl.power=1;bowl.dir=-1}else if(bowl.power<=0){bowl.power=0;bowl.dir=1}}
+ if(bowl.phase==='rolling'){
+ bowl.phaseTime+=dt;bowl.ball.x+=bowl.ball.vx*dt;bowl.ball.y+=bowl.ball.vy*dt;
+ if(bowl.ball.y<=268){bowlResolveImpact();bowl.phase='settling';bowl.phaseTime=0;}
+ }else if(bowl.phase==='settling'){bowl.phaseTime+=dt;bowl.ball.y+=bowl.ball.vy*dt*.35;if(bowl.phaseTime>.95)bowlFinishRoll();}
+ $('bowlReadout').textContent=bowl.finished?'5 frames complete':`FRAME ${bowl.frame+1}/5 · ROLL ${bowl.roll+1}/2 · ${Math.round(bowl.power*100)}% spring`;
+}
+function drawMiniPin(p){ctx.save();ctx.translate(p.x,p.y);if(p.down){ctx.translate(5,8);ctx.rotate(1.2+p.angle);ctx.globalAlpha=.6;}else if(p.fall>0){ctx.rotate(p.angle)}
+ ctx.fillStyle='#a39f8e66';ctx.beginPath();ctx.ellipse(3,10,11,4,0,0,Math.PI*2);ctx.fill();rr(-6,-15,12,30,6,'#f9f0dc','#675e50',1);circle(0,-11,5,'#f8f6e9');rr(-6,-2,12,4,2,'#a8453d');rr(-5,4,10,3,2,'#bc6154');ctx.restore();}
+function drawBowl(){cabinet('TEN STRIKE','WILLIAMS  •  1957/58  •  MANIKIN BOWLER','#84a6a2');
+ ctx.save();ctx.beginPath();ctx.roundRect(57,112,706,325,8);ctx.clip();ctx.fillStyle='#1c4345';ctx.fillRect(57,112,706,325);
+ rr(202,122,416,307,9,'#765d48','#d5b37f',6);rr(230,133,360,288,4,grad(220,132,600,429,[[0,'#d1b181'],[.5,'#f2d4a2'],[1,'#c49a6c']]),'#8e6a47',3);
+ for(let x=256;x<=565;x+=21){line(x,139,x,420,'#9d784632',1)}line(269,139,269,419,'#86634a',4);line(551,139,551,419,'#86634a',4);
+ rr(295,156,230,149,3,'#9b78503d','#8e6847',3);
+ // Ten individual resettable pins, plus a physically separate toy ball.
+ for(const p of bowl.pins)drawMiniPin(p);
+ const bx=bowl.ball?.x??410,by=bowl.ball?.y??394;
+ if(bowl.ball){circle(bx+6,by+8,13,'#70533566');circle(bx,by,12,'#aa4a35','#ffc68e',2);circle(bx-4,by-4,3,'#e9a77e');}
+ // The tiny bowler is drawn as an articulated figurine, not a video-game sprite.
+ circle(292,333,17,'#d0a67d','#553a30',2);rr(276,353,30,52,10,'#c96348','#f2c98a',2);line(286,396,273,422,'#4d5360',9);line(303,395,322,419,'#4d5360',9);line(285,363,258,379,'#dab186',8);line(299,363,317,385,'#dab186',8);circle(317,388,8,'#8c3b31','#f3c590',2);
+ rr(611,154,127,248,9,'#254344','#bb9d70',3);text('SCORE',675,187,16,'#f9dba5','center','Georgia,serif');text(format(bowl.score),675,226,22,'#f4e0b4','center');text('FRAME',675,267,15,'#c7d7cb','center');text(`${Math.min(5,bowl.frame+1)} / 5`,675,301,22,'#eec589','center');text('ROLL',675,341,14,'#c7d7cb','center');text(String(bowl.roll+1),675,373,22,'#eec589','center');
+ // Strength gauge & yellow release band.
+ rr(85,179,44,207,6,'#233837','#d0ae77',3);rr(93,188,28,187,4,'#604937');rr(93,205,28,50,3,'#9f7f47');rr(93,215,28,31,3,'#e0cb72');rr(93,188+187*(1-bowl.power)-3,28,7,3,'#f4f7dd','#2e3c37',1);text('WIND',107,169,12,'#e7d5ac','center');
+ ctx.restore();rr(53,456,714,56,10,'#223f43','#c2a976',2);text('AIM',78,480,10,'#d5ceb2');text(`${bowl.aim>0?'+':''}${Math.round(bowl.aim*100)}%`,78,502,19,'#eed5a6');text('SPRING',332,480,10,'#d5ceb2');text(`${Math.round(bowl.power*100)}%`,332,502,20,bowl.power>.65&&bowl.power<.95?'#f8de8b':'#d5cebc');text('STANDING',561,480,10,'#d5ceb2');text(String(bowl.pins.filter(p=>!p.down).length),561,502,19,'#eed5a6');
+ if(bowl.finished){rr(176,229,469,111,11,'#223c3cf2','#e7c891',3);text('FINAL FRAME!',410,270,29,'#f5dcae','center','Georgia,serif');text(`${bowl.score} POINTS`,410,309,22,'#f6edd5','center');}}
+
+// ---- ORIGINAL MECHANICAL SORTING MACHINE ----
+const SORT_COLORS=['#da6050','#d6b55b','#65b5c2'],SORT_LABELS=['RED','GOLD','BLUE'],SORT_SYMBOLS=['▲','●','■'];
+function newSwitch(){sorter={score:0,combo:0,selected:-1,relay:0,delivered:0,missed:0,lives:3,spawned:0,total:12,spawnTimer:.45,elapsed:0,running:false,finished:false,packages:[],flash:0,note:'Set a gate, then start the conveyor. Match each parcel to its destination.'};$('switchStart').textContent='▶ START BELT';$('switchReadout').textContent='12 parcels · 3 fuses';updateSwitchButtons();setStatus(sorter.note);}
+function updateSwitchButtons(){for(let i=0;i<3;i++)$('switch'+['Red','Gold','Blue'][i]).classList.toggle('selected',sorter?.selected===i);}
+function switchSelect(n){if(state.mode!=='switch'||!sorter||sorter.finished)return;if(sorter.selected!==n){sorter.selected=n;sorter.relay=.23;sound('click');updateSwitchButtons();sorter.note=`Switch set to ${SORT_LABELS[n]}. Allow the relay to latch before the package reaches the chute.`;setStatus(sorter.note);}}
+function switchStart(){if(state.mode!=='switch'||!sorter||sorter.finished)return;sorter.running=!sorter.running;$('switchStart').textContent=sorter.running?'Ⅱ PAUSE BELT':'▶ START BELT';setStatus(sorter.running?'Conveyor started. Watch the parcels!':'Conveyor paused.');}
+function updateSwitch(dt){sorter.flash=Math.max(0,sorter.flash-dt);sorter.relay=Math.max(0,sorter.relay-dt);if(!sorter.running||sorter.finished)return;
+ sorter.elapsed+=dt;sorter.spawnTimer-=dt;
+ const speed=115+sorter.delivered*11+sorter.missed*6;
+ if(sorter.spawned<sorter.total&&sorter.spawnTimer<=0){const id=sorter.spawned,kind=(id*7+Math.floor(id/3)+1)%3;sorter.packages.push({x:124,kind,done:false,age:0,progress:0});sorter.spawned++;sorter.spawnTimer=Math.max(.86,1.5-sorter.spawned*.045);}
+ for(const p of sorter.packages){p.age+=dt;if(!p.done){p.x+=speed*dt;if(p.x>=568){p.done=true;p.x=568;p.progress=0;const good=sorter.selected===p.kind&&sorter.relay<=0;if(good){sorter.delivered++;sorter.combo++;sorter.score+=100+Math.min(5,sorter.combo-1)*30;sorter.note=`ROUTED TO ${SORT_LABELS[p.kind]}! COMBO ×${Math.min(6,sorter.combo)}`;sound('point');}
+ else{sorter.missed++;sorter.lives--;sorter.combo=0;sorter.flash=1;sorter.note=`WRONG CHUTE! ${sorter.lives} fuse${sorter.lives===1?'':'s'} remaining.`;sound('fall');shake();}
+ setStatus(sorter.note);if(sorter.lives<=0){sorter.finished=true;sorter.running=false;sorter.note=`FUSES BLOWN · ${sorter.score} POINTS`;scoreIfBest('switch',sorter.score);sound('finish');}
+ }}else p.progress+=dt*1.65;}
+ sorter.packages=sorter.packages.filter(p=>!p.done||p.progress<1);
+ if(!sorter.finished&&sorter.spawned>=sorter.total&&sorter.packages.length===0){sorter.running=false;sorter.finished=true;sorter.note=`SHIFT OVER · ${sorter.delivered}/${sorter.total} DELIVERED · ${sorter.score} POINTS`;scoreIfBest('switch',sorter.score);sound('finish');setStatus(sorter.note);}
+ $('switchReadout').textContent=`${sorter.delivered}/${sorter.total} delivered · ${sorter.lives} fuses · combo ${sorter.combo}`;
+}
+function drawSwitch(){cabinet('RELAY SWITCHYARD','FICTIONAL 1950s SORTING MACHINE  •  ORIGINAL DESIGN','#8baaa6');
+ ctx.save();ctx.beginPath();ctx.roundRect(57,112,706,326,8);ctx.clip();ctx.fillStyle='#243d3d';ctx.fillRect(57,112,706,326);
+ for(let i=0;i<17;i++){line(57+i*42,112,57+i*42,434,'#a9d5c219',1)}
+ rr(79,161,495,70,8,'#263232','#b59662',5);text('PATTERN-CODED PARCEL SORTER',326,189,18,'#f2d4a5','center','Georgia,serif');text('READ THE STAMP · SET THE MATCHING RELAY BEFORE THE SENSOR',326,213,11,'#c1d8cc','center');
+ // Three chutes and mechanical diverter paddles.
+ const chutes=[237,318,397];for(let i=0;i<3;i++){
+ const yy=chutes[i];rr(594,yy-29,143,59,5,'#132b2c',SORT_COLORS[i],4);line(597,yy,731,yy,SORT_COLORS[i]+'bb',4);circle(690,yy,13,SORT_COLORS[i],'#eedbb6',2);text(SORT_SYMBOLS[i],690,yy+6,18,'#152628','center');text(SORT_LABELS[i],643,yy+5,13,'#e7e0c6','center');}
+ // Running belt with offset slats and a central sensor.
+ rr(101,290,505,68,10,'#4e5050','#b69760',5);rr(110,300,492,49,5,'#2b4746','#0a1819',3);
+ const t=sorter.elapsed*80%24;for(let x=120-t;x<598;x+=23)line(x,305,x+9,344,'#83a4a157',3);
+ rr(548,259,45,130,8,sorter.relay>0?'#975d42':'#9b855a','#ead5a0',4);rr(558,272,26,104,4,'#1a3638');circle(571,276,12,sorter.relay>0?'#e6a366':'#84c99a','#d4d3b7',3);
+ line(568,338,603,chutes[sorter.selected<0?1:sorter.selected],'#f0d493',9);line(568,338,603,chutes[sorter.selected<0?1:sorter.selected],'#6b5440',3);
+ for(const p of sorter.packages){const x=p.done?lerp(563,647,Math.min(1,p.progress)):p.x,y=p.done?lerp(320,chutes[sorter.selected<0?1:sorter.selected],Math.min(1,p.progress)):321;
+ rr(x-20,y-20,40,38,5,'#be9663','#fff0ce',2);line(x-15,y-17,x+15,y+13,'#785d36',2);rr(x-12,y-11,24,24,4,SORT_COLORS[p.kind]);text(SORT_SYMBOLS[p.kind],x,y+7,20,'#132c2c','center');}
+ // Relay control bulbs reflect actual selection, not moving colored targets.
+ for(let i=0;i<3;i++){const xx=193+i*140;circle(xx,405,19,sorter.selected===i?SORT_COLORS[i]:'#4b5351','#e8c68d',3);text(SORT_LABELS[i],xx,435,13,'#d1cba8','center');}
+ ctx.restore();rr(53,456,714,56,10,'#244344','#b8a374',2);text('DELIVERED',79,482,10,'#dae0d3');text(`${sorter.delivered}/${sorter.total}`,79,503,18,'#f2d79e');text('FUSES',329,482,10,'#dae0d3');text('●'.repeat(sorter.lives)+'○'.repeat(3-sorter.lives),329,502,19,'#e9c778');text('SCORE',566,482,10,'#dae0d3');text(format(sorter.score),566,502,19,'#f2d79e');
+ if(sorter.finished){rr(164,228,492,105,9,'#1b3538f5','#e8c995',3);text(sorter.lives?'SHIFT COMPLETE':'FUSES BLOWN',410,267,28,'#f7dcaa','center','Georgia,serif');text(`${sorter.delivered} DELIVERED · ${sorter.score} POINTS`,410,303,19,'#f3e7c7','center');}}
+
+function draw(){ctx.clearRect(0,0,W,H);if(state.mode==='drive'&&drive)drawDrive();if(railMode()&&railState())drawRails();if(state.mode==='bear'&&bear)drawBear();if(state.mode==='course'&&course)drawCourse();if(state.mode==='maze'&&maze)drawMaze();if(state.mode==='crane'&&crane)drawCrane();if(state.mode==='bowl'&&bowl)drawBowl();if(state.mode==='switch'&&sorter)drawSwitch()}
 function hud(){if(state.mode==='drive'){ $('labelA').textContent='SCORE';$('valueA').textContent=format(drive.score);$('labelB').textContent='TIME LEFT';$('valueB').textContent=Math.ceil(drive.time)+'s';$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(drive.score,high.drive));if(!drive.ended&&drive.off)setStatus('OFF ROAD — steer back onto the roadway!');else if(!drive.ended&&drive.flash>0)setStatus('CHECKPOINT! +180 points');else if(!drive.ended)setStatus('Stay on the painted road to keep earning points.');}
  if(state.mode==='bear'){$('labelA').textContent='SCORE';$('valueA').textContent=format(bear.score);$('labelB').textContent='SHOTS';$('valueB').textContent=bear.shots+'/20';$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.bear,bear.score));}
  if(railMode()){const r=railState();$('labelA').textContent='TOTAL POINTS';$('valueA').textContent=format(r.score);$('labelB').textContent='BALL';$('valueB').textContent=`${Math.min(5,r.used+1)}/5`;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high[r.which],r.score));if(r.active){const limit=(RAIL.R*2*.985-RAIL.hinge)/(RAIL.maxDelta*Math.max(.05,r.pos));const risk=r.gap>limit*.88?' · GAP DANGER!':' ';setStatus(`Ball ${r.used+1}/5 · ${Math.round(r.pos*100)}% uphill · speed ${r.vel>=0?'↑':'↓'} · spread ${Math.round(r.gap*100)}%${risk}`)}}
  if(state.mode==='course'){$('labelA').textContent='SCORE';$('valueA').textContent=format(course.score);$('labelB').textContent='STATION';$('valueB').textContent=`${Math.min(4,course.stage+1)}/4`;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.course,course.score));setStatus(course.note);}
+ if(state.mode==='crane'){$('labelA').textContent='SCORE';$('valueA').textContent=format(crane.score);$('labelB').textContent='DROPS';$('valueB').textContent=`${crane.used}/5`;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.crane,crane.score));}
+ if(state.mode==='bowl'){$('labelA').textContent='SCORE';$('valueA').textContent=format(bowl.score);$('labelB').textContent='FRAME';$('valueB').textContent=`${Math.min(5,bowl.frame+1)}/5`;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.bowl,bowl.score));}
+ if(state.mode==='switch'){$('labelA').textContent='SCORE';$('valueA').textContent=format(sorter.score);$('labelB').textContent='FUSES';$('valueB').textContent=sorter.lives;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.switch,sorter.score));}
  if(state.mode==='maze'){$('labelA').textContent='PROGRESS';$('valueA').textContent=format(maze.score);$('labelB').textContent='FALLS';$('valueB').textContent=maze.falls;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.maze,maze.score));$('mazeReadout').textContent=`${maze.falls} falls · tilt X ${Math.round(maze.tx*100)}%, Y ${Math.round(maze.ty*100)}%`;}
 }
-function tick(now){const dt=Math.min((now-(state.last||now))/1000,.045);state.last=now;if(state.mode==='drive'&&drive)updateDrive(dt);if(railMode()&&railState())updateRails(dt);if(state.mode==='bear'&&bear)updateBear(dt);if(state.mode==='course'&&course)updateCourse(dt);if(state.mode==='maze'&&maze)updateMaze(dt);if(state.mode!=='library'){draw();hud()}requestAnimationFrame(tick)}
+function tick(now){const dt=Math.min((now-(state.last||now))/1000,.045);state.last=now;if(state.mode==='drive'&&drive)updateDrive(dt);if(railMode()&&railState())updateRails(dt);if(state.mode==='bear'&&bear)updateBear(dt);if(state.mode==='course'&&course)updateCourse(dt);if(state.mode==='maze'&&maze)updateMaze(dt);if(state.mode==='crane'&&crane)updateCrane(dt);if(state.mode==='bowl'&&bowl)updateBowl(dt);if(state.mode==='switch'&&sorter)updateSwitch(dt);if(state.mode!=='library'){draw();hud()}requestAnimationFrame(tick)}
 function holdSetup(id){const node=$(id);const down=e=>{e.preventDefault();node.classList.add('pressed');state.holds.add(id);try{node.setPointerCapture(e.pointerId)}catch{}};const up=e=>{node.classList.remove('pressed');state.holds.delete(id)};node.addEventListener('pointerdown',down);node.addEventListener('pointerup',up);node.addEventListener('pointercancel',up);node.addEventListener('lostpointercapture',up)}
-['steerLeft','steerRight','closeRods','openRods'].forEach(holdSetup);
+['steerLeft','steerRight','closeRods','openRods','craneLeft','craneRight','craneUp','craneDown'].forEach(holdSetup);
 $('steerSlider').addEventListener('input',e=>{if(drive)drive.target=Number(e.target.value)});
 $('gapSlider').addEventListener('input',e=>{if(railMode()&&railState())railState().target=Number(e.target.value)/100});
 cvs.addEventListener('pointerdown',e=>{if(state.mode==='library')return;try{cvs.setPointerCapture(e.pointerId)}catch{};if(railMode()&&railState()&&!railState().active&&!railState().ended){liftBall();return}onCanvasPoint(e)});
 cvs.addEventListener('pointerup',e=>{if(state.mode==='bear'&&bear&&!bear.ended){onCanvasPoint(e);fireBear()}});
 cvs.addEventListener('pointermove',e=>{if(e.buttons||e.pressure>0)onCanvasPoint(e)});
-function onCanvasPoint(e){const r=cvs.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H;if(state.mode==='drive'&&drive&&!drive.ended){drive.target=clamp((x-410)/285,-1,1);$('steerSlider').value=drive.target}if(railMode()&&railState()&&railState().active){const v=clamp((state.mode==='moon'?x-250:x-145)/(state.mode==='moon'?330:545),0,1);railState().target=v;$('gapSlider').value=Math.round(v*100)}if(state.mode==='bear'&&bear&&!bear.ended){bear.aimX=clamp(x,64,756);bear.aimY=clamp(y,122,433)}}
-document.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowleft','arrowright','arrowup','arrowdown',' ','a','d','w','s','r','j','k'].includes(k)&&state.mode!=='library')e.preventDefault();state.keys.add(k);if(k===' '&&railMode()&&!e.repeat)liftBall();if(k===' '&&state.mode==='bear'&&!e.repeat)fireBear();if(k==='r'&&state.mode!=='library'&&!e.repeat)reset()});
-document.addEventListener('keyup',e=>state.keys.delete(e.key.toLowerCase()));
-window.addEventListener('blur',()=>{state.keys.clear();state.holds.clear();document.querySelectorAll('.bigcontrol').forEach(e=>e.classList.remove('pressed'))});
+function onCanvasPoint(e){const r=cvs.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H;if(state.mode==='drive'&&drive&&!drive.ended){drive.target=clamp((x-410)/285,-1,1);$('steerSlider').value=drive.target}if(railMode()&&railState()&&railState().active){const v=clamp((state.mode==='moon'?x-250:x-145)/(state.mode==='moon'?330:545),0,1);railState().target=v;$('gapSlider').value=Math.round(v*100)}if(state.mode==='crane'&&crane&&crane.phase==='ready'){crane.x=clamp(x,150,668);crane.y=clamp(y,196,414)}if(state.mode==='bowl'&&bowl&&bowl.phase==='ready'){bowl.aim=clamp((x-410)/210,-1,1);$('bowlAim').value=Math.round(bowl.aim*100)}if(state.mode==='bear'&&bear&&!bear.ended){bear.aimX=clamp(x,64,756);bear.aimY=clamp(y,122,433)}}
+document.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowleft','arrowright','arrowup','arrowdown',' ','a','d','w','s','r','j','k','1','2','3'].includes(k)&&state.mode!=='library')e.preventDefault();state.keys.add(k);if(k===' '&&railMode()&&!e.repeat)liftBall();if(k===' '&&state.mode==='bear'&&!e.repeat)fireBear();if(k===' '&&state.mode==='bowl'&&!e.repeat)bowlWind();if(k===' '&&state.mode==='crane'&&!e.repeat)craneDrop();if(state.mode==='switch'&&!e.repeat&&['1','2','3'].includes(k))switchSelect(Number(k)-1);if(k==='r'&&state.mode!=='library'&&!e.repeat)reset()});
+document.addEventListener('keyup',e=>{state.keys.delete(e.key.toLowerCase());if(state.mode==='bowl'&&e.key===' ')bowlRelease()});
+window.addEventListener('blur',()=>{state.keys.clear();state.holds.clear();document.querySelectorAll('.bigcontrol').forEach(e=>e.classList.remove('pressed'));if(bowl?.charging){bowl.charging=false}});
 document.querySelectorAll('[data-play]').forEach(el=>el.addEventListener('click',()=>{sound('click');modeTo(el.dataset.play)}));
 $('backBtn').addEventListener('click',()=>{sound('click');modeTo('library')});$('resetBtn').addEventListener('click',reset);
 $('liftBtn').addEventListener('click',liftBall);$('fireBtn').addEventListener('click',fireBear);
+$('craneDrop').addEventListener('click',craneDrop);$('bowlAim').addEventListener('input',e=>{if(bowl&&bowl.phase==='ready')bowl.aim=Number(e.target.value)/100});
+for(let i=0;i<3;i++)$('switch'+['Red','Gold','Blue'][i]).addEventListener('click',()=>switchSelect(i));$('switchStart').addEventListener('click',switchStart);
+const wind=$('bowlCharge');wind.addEventListener('pointerdown',e=>{e.preventDefault();try{wind.setPointerCapture(e.pointerId)}catch{}bowlWind();wind.classList.add('pressed')});for(const evt of ['pointerup','pointercancel','lostpointercapture'])wind.addEventListener(evt,()=>{if(bowl?.charging)bowlRelease();wind.classList.remove('pressed')});
+cvs.addEventListener('pointerdown',e=>{if(state.mode==='switch'&&sorter&&!sorter.finished){const r=cvs.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H;if(y>382&&y<451&&x>125&&x<550){switchSelect(clamp(Math.round((x-193)/140),0,2))}}});
 
 const onCourseA=$('courseA'),onCourseB=$('courseB');
 function courseBind(node,which){
