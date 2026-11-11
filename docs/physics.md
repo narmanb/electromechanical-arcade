@@ -45,3 +45,13 @@ The tilt maze integrates a 2D velocity vector accelerated by two independent vir
 ## Obstacle course physics
 
 Marble Mechanica is a multi-station mechanical-control *interpretation* of the toy genre. The teetering bridge now includes ball-driven bridge torque, player-applied left/right torque, angular damping, and a two-second center-balance requirement with position, velocity and angle thresholds. The stepping pads have four lives, progressively smaller hit windows and faster sweeps, and automatically deduct a life if a sweep completes without a press. The spring launcher and rotary gate remain rule-based rather than full rigid-body models. We intentionally retain direct mechanical buttons for those stations rather than mapping everything to a virtual joystick.
+
+## New machines in v0.5
+
+These additions are simplified, originally drawn mechanical **game simulations**, not restorations of original engineering schematics:
+
+- **Electric Crane:** a rotating prize carousel; the controlled boom lowers for 0.78 seconds, then a deterministic distance test checks whether the open claw overlaps a prize. Successful pickups travel to the prize chute. Five drops per round.
+- **Ten Strike:** an aimable spring-release bowler with a charging oscillator, a drawn ten-pin rack, an off-center strike pocket, two attempts per frame, and 30/20/total-pins scoring across five frames. Pin contact is an approximation rather than rigid-body collision simulation.
+- **Relay Switchyard:** an original fictional electromechanical sorter with a moving belt, three discrete relay switches, a short switch-latch delay, twelve stamped packages, three fuses, and combo bonuses. No historical machine is claimed as a direct source.
+
+Controls were checked in Chromium at portrait 390×844 and landscape 844×390 resolutions. Tuning on physical phones remains pending.
