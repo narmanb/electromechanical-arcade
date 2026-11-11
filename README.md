@@ -1,56 +1,80 @@
 # Electromechanical Arcade
 
-A playable, browser-based collection inspired by historical mechanical and electromechanical arcade machines. **Prototype v0.2.** Works on phones, tablets, and desktop browsers. No frameworks, external assets, internet connection or build step required.
+A mobile-first, playable collection inspired by mechanical and electromechanical games from before and around the dawn of video arcades. **Version 0.3** features **six games**, in one self-contained, offline-compatible `index.html`.
 
-## Play
+**[Open the playable collection](index.html)** (when using GitHub Pages, visit the Pages website for this repository).
 
-Open `index.html` in a browser, or visit a static hosting deployment of this repository. For GitHub Pages: Settings → Pages → Deploy from branch → `main` / root.
+## The games
 
-### Mini Drive (Kasco, 1959)
+| Game | Inspiration | How to play |
+| --- | --- | --- |
+| **Mini Drive** | Kasco Mini Drive (1959) | Steer a toy car over a moving roadway. Keep it on the road to score. |
+| **Ball Walk** | Cointronics Ball Walk (1960s) | Five balls. Spread and close twin hinged rails, using gravity and inertia to coax the ball toward the chime. |
+| **Shoot the Moon** | Classic wooden tabletop game (1940s onward) | Five attempts. Roll a steel ball along hinged rails, then drop it in a scoring planet pocket. |
+| **Marble Mechanica** | Mechanical button-operated obstacle toys, notably TOMY's Screwball Scramble (1979) | Clear four original stations: spring launcher, teetering bridge, timed stepping pads, and rotary gate. |
+| **Tilt Labyrinth** | BRIO's wooden tilt labyrinth (1946) | Roll a ball through an original maze by changing two tilt axes. Avoid holes. |
+| **Shoot the Bear** | Seeburg Shoot the Bear (1949) | Aim a moving light-rifle crosshair and fire 20 shots. |
 
-Steer the toy car left and right to stay on the scrolling road and earn points. Drive for 75 seconds and collect checkpoint bonuses. Use left/right buttons, the steering slider, touch anywhere inside the playfield, or arrow keys/A-D.
+These games are **original playable interpretations** and **not licensed or exact historical reproductions**. We did not reuse original commercial game artwork, sounds, board layouts, source code, or brand trade dress.
 
-### Ball Walk (Cointronics, 1960s)
+## Controls
 
-Tap the **playfield** itself or **LIFT BALL**. Gently **open** the two rods to walk the steel ball toward the far end; **close** them to reset your stroke, then repeat. If you open them too wide (above ~85%) the ball falls into a scoring pocket. You receive five balls. Reaching the jackpot earns 500 points and doubles the final total. Use the touch buttons, the spread slider, drag across the playfield, or arrow keys/A-D. Press Space to lift the next ball.
+### Mini Drive
+- **Touch:** horizontal steering slider, tap/drag on the road, or hold left/right buttons.
+- **Keyboard:** Left/Right arrows or A/D.
 
-### Shoot the Bear (Seeburg, 1949)
+### Ball Walk and Shoot the Moon
+- **Touch:** press **LIFT BALL** or tap the playfield to start the next ball. Move the **RAIL SPREAD** slider or hold **CLOSE/OPEN**.
+- **Keyboard:** Left/Right or A/D to change spread, Space to lift.
+- Spread the rails to reshape the slope and accelerate the ball. Narrow the rails before they open too wide beneath the ball. Watch the **BALL SPEED** readout. The ball can roll backward, carry inertia forward, or drop between the rods. There is no hidden “open = automatic progress” scoring shortcut.
 
-A 20-shot rifle-gallery approximation, inspired by the original mechanical bear roaming in front of painted forest scenery and the light-sensitive targets on its body. Drag a finger across the playfield to aim the crosshair, and release to fire. Or aim and tap the **FIRE** button. A hit on a running bear earns 100 points and makes it rear up for 2.7 seconds. Shoot its three lit sensors for 150 bonus points apiece. Original scoring and animation mechanisms have been simplified. Keyboard: arrows/WASD aim and Space fires.
+### Marble Mechanica
+This is deliberately **not** a single joystick game. The two on-screen buttons become the appropriate mechanical controls at each station, with the enlarged active mechanism pictured on the left:
 
-## Landscape play
+1. **Spring launcher:** Hold `HOLD SPRING` to build pressure; release (or tap `RELEASE`) in the gold power zone.
+2. **Teetering bridge:** Hold `LEFT` or `RIGHT` briefly to control a tip-able bridge. Give the marble a gentle slope, but don't overtilt.
+3. **Stepping pads:** Tap the alternating `LEFT PAD` and `RIGHT PAD` controls when the timing marker is in the gold window. Complete six jumps.
+4. **Rotary gate:** Hold `CRANK` to turn the gate; tap `DROP BALL` when it lines up with the target arrow.
 
-On phone-sized landscape screens the playable cabinet appears to the left and the readouts plus **all important controls** stay visible on the right. The layout fits the visible browser area instead of forcing you to scroll below the playfield to press **LIFT BALL**. Ball Walk can also start the next ball simply by tapping the playfield. Portrait keeps the larger stacked controls.
+A mistake restarts the current station and costs points, not the whole course. The buttons also respond to **J/K** or **Left/Right** keys. This is an original four-mechanism proof of concept inspired by the feel of manually operating plastic toy mechanisms, not a duplicate of a Screwball Scramble product.
 
-## Other controls
+### Tilt Labyrinth
+- **Touch:** drag *from anywhere on the playfield* to tilt the board relative to your initial finger position; release to let the tilt level out. Or use the independent X and Y sliders in the control panel.
+- **Keyboard:** Arrow keys or WASD.
+- Ball motion has acceleration, momentum, damping, and collision with wooden walls. Rolling into one of the dark holes returns you to the beginning; the goal is the brass G cup.
 
-- `R`: restart current machine.
-- `FULLSCREEN`: maximize the cabinet if the browser permits it.
-- `SOUND`: toggle synthesized clicks, bell and buzzer.
-- All three games have independent best scores, stored in the local browser using localStorage where available.
+### Shoot the Bear
+- Drag to aim; release to fire, or press the FIRE button. Keyboard arrows/WASD to aim and Space to shoot.
 
-## Scope and authenticity
+All games have **Reset**, sound toggle, fullscreen attempt, and local best scores. Sounds are synthesized with Web Audio. No external assets, accounts, server calls, or downloads are required after you save the HTML.
 
-These are **original, unlicensed approximations**, *not* exact historical restorations. The mechanisms, dimensions, scoring, cabinet artwork, and gameplay have been simplified for a mobile proof of concept. Notably, **Ball Walk was entirely mechanical**, even though it could have optional electric lights, bell, and buzzer.
+## Technical approach
 
-No third-party pictures, sounds, fonts or code dependencies are bundled. UI illustrations and playfields are drawn using CSS and HTML Canvas. No generated images used.
+- Pure **HTML + CSS + Canvas + JavaScript**, no external libraries or image assets.
+- One portable file, designed to fit both portrait and landscape phone screens.
+- The *Ball Walk* and *Shoot the Moon* games now share an approximate **rod/ball geometry-and-gravity integrator** with changing ball height, projected gravitational force, rolling inertia, and friction. See [docs/physics.md](docs/physics.md).
+- *Tilt Labyrinth* has 2D acceleration/inertia and rounded ball-versus-wall collision resolution. Its maze is independently generated with a fixed seed; holes are placed in dead ends off the guaranteed path.
+- *Marble Mechanica* uses four deterministic interactive stations; bridge motion has acceleration and inertia, while other station mechanisms are rule-based minigames.
+- No claim of exact restoration of actual electromechanical schematics or original physical forces.
 
-### Historical references
+## Run / deploy
 
-- Mini Drive gameplay footage: https://www.youtube.com/watch?v=svQzx8OI8PQ
-- Mini Drive overview: https://ameblo.jp/dorikin86/entry-12477043796.html
-- Ball Walk description: https://www.arcade-museum.com/Trade-Stim/ball-walk
-- Ball Walk original restoration: https://forums.arcade-museum.com/threads/my-restoration-of-a-ball-walk-1960s-game-cointroinics.333857/
-- Ball Walk reference: https://www.pinrepair.com/arcade/ballwalk.htm
-- Shoot the Bear listing: https://www.arcade-museum.com/Arcade/shoot-the-bear
-- Shoot the Bear restoration and historical mechanism: https://www.pinrepair.com/arcade/shotbea.htm
+1. Download or clone the repository.
+2. Open `index.html` in a browser, or serve it with any static server.
+3. To publish from GitHub: **Settings → Pages → Deploy from a branch → `main` → `/ (root)`**.
+
+## References and further reading
+
+- [Ball Walk, International Arcade Museum](https://www.arcade-museum.com/Trade-Stim/ball-walk)
+- [Shoot the Moon wooden game construction and play, Woodcraft](https://www.woodcraft.com/blogs/small-projects/shoot-the-moon)
+- [Peng Xu, *Dynamics and Control of the Shoot-the-Moon Tabletop Game*, Clemson thesis (2011)](https://open.clemson.edu/all_theses/1209/)
+- [Stanford CHARM Lab, Shoot the Moon haptic simulation](https://charm.stanford.edu/ME327/Group9)
+- [TAKARA TOMY Screwball Scramble news release (2022)](https://www.takaratomy.co.jp/english/product_release/pdf/p220201_en.pdf)
+- [BRIO Labyrinth, official manufacturer page](https://www.ravensburger.us/en-US/brio/products/games/labyrinth-game-63400000)
 
 ## Roadmap
 
-1. Playtest on touchscreens and tune steering and twin-rail response.
-2. Improve mechanical simulation, playfield depth, shadows, and authentic cabinet presentation.
-3. Validate original scoring, dimensions and variants from manuals or surviving machines.
-4. Split into maintainable modules as the collection grows, then add additional machines.
-5. Optionally wrap the web version as an Android APK.
-
-© No claim of ownership of the names or original machine designs of Kasco, Cointronics or Seeburg. Historical names are used for identification; this prototype is unaffiliated with the manufacturers.
+- Tuning the rail physics with real-world reference footage and measured rail geometry.
+- Improve rolling sound and tactile feedback.
+- Add more original mechanical obstacle modules and alternate labyrinth layouts.
+- Optional touchscreen/gamepad presets and better accessibility options.
