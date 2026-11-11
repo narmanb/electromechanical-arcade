@@ -97,7 +97,7 @@ let drive,ball,moon,bear,course,maze;
 const railMode=()=>state.mode==='ball'||state.mode==='moon';
 const railState=()=>state.mode==='moon'?moon:ball;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)),lerp=(a,b,t)=>a+(b-a)*t;
-const format=n=>String(Math.max(0,Math.floor(n))).padStart(5,'0');
+const format=n=>{const v=Math.floor(n);return v<0?'-'+String(-v).padStart(4,'0'):String(v).padStart(5,'0')};
 function rr(x,y,w,h,r,fill,stroke,lw=1){ctx.beginPath();ctx.roundRect(x,y,w,h,r);if(fill){ctx.fillStyle=fill;ctx.fill()}if(stroke){ctx.lineWidth=lw;ctx.strokeStyle=stroke;ctx.stroke()}}
 function line(x,y,xx,yy,color,width=2){ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(xx,yy);ctx.strokeStyle=color;ctx.lineWidth=width;ctx.stroke()}
 function text(s,x,y,size=18,color='#f5e7bd',align='left',font='system-ui',weight='700'){ctx.save();ctx.textAlign=align;ctx.fillStyle=color;ctx.font=`${weight} ${size}px ${font}`;ctx.fillText(String(s),x,y);ctx.restore()}
