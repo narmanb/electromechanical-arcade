@@ -55,26 +55,26 @@
 </head>
 <body>
 <div class="page">
-<header class="mast"><div class="wordmark"><div class="emblem" aria-hidden="true">⚙</div><div class="brandtext">ELECTROMECHANICAL<span>ARCADE</span></div></div><div class="tag">PROTOTYPE · v0.3</div></header>
+<header class="mast"><div class="wordmark"><div class="emblem" aria-hidden="true">⚙</div><div class="brandtext">ELECTROMECHANICAL<span>ARCADE</span></div></div><div class="tag">PROTOTYPE · v0.4</div></header>
 <main>
 <section id="library">
 <div class="hero"><p class="kicker">Before pixels, there were moving parts</p><h1>The arcade before<br>the video game.</h1><p>A small, playable tribute to mechanical and electromechanical amusement machines. Miniature models, moving roads, steel balls, relays and the stubborn ingenuity of an era before screens ran the show.</p><div class="ornament"></div></div>
 <div class="grid">
 <article class="gamecard"><div class="card-art driveart" aria-hidden="true"><div class="drivelane"></div><div class="toycar">🚘</div></div><div class="card-body"><div class="eyebrow">Kasco · 1959 · Driving</div><h2>Mini Drive</h2><p>Steer a miniature car over a moving mechanical roadway. Keep it on the road to build your score before the clock runs out.</p><div class="card-foot"><span class="high" id="libraryDriveHigh">BEST 00000</span><button class="btn" data-play="drive">Play machine</button></div></div></article>
 <article class="gamecard"><div class="card-art ballart" aria-hidden="true"><div class="ballrail"></div><div class="ballrail b"></div><div class="steelball"></div></div><div class="card-body"><div class="eyebrow">Cointronics · 1960s · Skill</div><h2>Ball Walk</h2><p>Manipulate two steel rails to coax a ball uphill toward the jackpot. Five balls per round. Opening them too far sends the ball into a scoring pocket.</p><div class="card-foot"><span class="high" id="libraryBallHigh">BEST 0000</span><button class="btn" data-play="ball">Play machine</button></div></div></article>
-<article class="gamecard"><div class="card-art moonart" aria-hidden="true"><div class="ballrail"></div><div class="ballrail b"></div><div class="steelball"></div></div><div class="card-body"><div class="eyebrow">1940s-style tabletop · Steel ball</div><h2>Shoot the Moon</h2><p>A polished wooden board and two hinged steel rails. Build real momentum along the rods and drop the ball into a planet scoring cup.</p><div class="card-foot"><span class="high" id="libraryMoonHigh">BEST 00000</span><button class="btn" data-play="moon">Play machine</button></div></div></article>
-<article class="gamecard"><div class="card-art courseart" aria-hidden="true"></div><div class="card-body"><div class="eyebrow">Inspired by 1979 obstacle toys</div><h2>Marble Mechanica</h2><p>Original four-station obstacle course inspired by Screwball Scramble. Operate a spring launcher, tip bridge, stepping platforms, and rotary gate.</p><div class="card-foot"><span class="high" id="libraryCourseHigh">BEST 00000</span><button class="btn" data-play="course">Play machine</button></div></div></article>
+<article class="gamecard"><div class="card-art moonart" aria-hidden="true"><div class="ballrail"></div><div class="ballrail b"></div><div class="steelball"></div></div><div class="card-body"><div class="eyebrow">1940s-style tabletop · Steel ball</div><h2>Shoot the Moon</h2><p>A vertical wooden tabletop with two hinged steel rails. Build momentum, keep the ball supported, then deliberately drop it into a planet scoring cup.</p><div class="card-foot"><span class="high" id="libraryMoonHigh">BEST 00000</span><button class="btn" data-play="moon">Play machine</button></div></div></article>
+<article class="gamecard"><div class="card-art courseart" aria-hidden="true"></div><div class="card-body"><div class="eyebrow">Inspired by 1979 obstacle toys</div><h2>Marble Mechanica</h2><p>Original four-station obstacle course inspired by Screwball Scramble. Operate a spring launcher, balance a marble at the center of a teetering bridge, survive timed jumping pads, and align a rotary gate.</p><div class="card-foot"><span class="high" id="libraryCourseHigh">BEST 00000</span><button class="btn" data-play="course">Play machine</button></div></div></article>
 <article class="gamecard"><div class="card-art mazeart" aria-hidden="true"></div><div class="card-body"><div class="eyebrow">Inspired by the 1946 wooden classic</div><h2>Tilt Labyrinth</h2><p>Use two virtual tilt knobs, or drag the board, to roll a steel marble through a wooden maze. Avoid holes and hit the brass goal.</p><div class="card-foot"><span class="high" id="libraryMazeHigh">BEST 00000</span><button class="btn" data-play="maze">Play machine</button></div></div></article>
 <article class="gamecard"><div class="card-art bearart" aria-hidden="true"><div class="bearforest"></div><div class="bearshape">🐻</div></div><div class="card-body"><div class="eyebrow">Seeburg · 1949 · Rifle gallery</div><h2>Shoot the Bear</h2><p>A moving mechanical bear crosses a painted forest. Aim the light rifle, fire, and score bonus targets when the bear rears up. 20 shots.</p><div class="card-foot"><span class="high" id="libraryBearHigh">BEST 00000</span><button class="btn" data-play="bear">Play machine</button></div></div></article>
 </div>
-<div class="panel-note"><strong>About this prototype:</strong> All artwork and obstacle layouts are original. Rail games now use an approximate gravity-and-geometry model with inertia; the other games use custom physics or mechanical minigame rules. This is not a licensed recreation or laboratory-perfect simulation. No downloads, accounts or network connection are needed. The game works offline after the HTML file is saved on your device.</div>
+<div class="panel-note"><strong>About this prototype:</strong> All artwork and obstacle layouts are original. Rail games use position-dependent gravity, inertia and contact geometry; static rod openings cannot simply cruise to the jackpot. Obstacle timing, balance, and tilt visuals are also improved. This is not a licensed recreation or laboratory-perfect simulation. No downloads, accounts or network connection are needed. The game works offline after the HTML file is saved on your device.</div>
 </section>
 <section id="player" hidden>
 <div class="gamebar"><div class="left"><button class="btn btn-alt btn-sm" id="backBtn">← Collection</button><span class="game-label" id="machineName">MINI DRIVE</span></div><div class="right"><button class="btn btn-alt btn-sm" id="soundBtn" aria-pressed="true">♪ SOUND ON</button><button class="btn btn-alt btn-sm" id="fullscreenBtn">⛶ FULLSCREEN</button><button class="btn btn-dark btn-sm" id="resetBtn">↻ RESET</button></div></div>
 <div class="game-layout"><div class="play-stage"><div class="screen-frame"><div class="glass"><canvas id="machine" width="820" height="540" aria-label="Playable mechanical arcade simulation"></canvas></div></div></div><div class="game-sidebar">
 <div class="hud"><div class="readout"><small id="labelA">SCORE</small><b id="valueA">00000</b></div><div class="readout"><small id="labelB">TIME LEFT</small><b id="valueB">75</b></div><div class="readout"><small id="labelC">BEST SCORE</small><b id="valueC">00000</b></div></div>
 <div id="driveControls" class="controlbox"><p class="control-title">Steering wheel</p><p class="controlhint">Keep the little red car on the moving road. Slide the steering control, hold ◀/▶, touch the playfield, or use the keyboard arrows/A-D.</p><div class="controls-row"><button id="steerLeft" class="btn btn-alt bigcontrol" aria-label="Steer left">◀ LEFT</button><div class="controlcenter"><span class="sliderlabel">STEER</span><input id="steerSlider" type="range" min="-1" max="1" step="0.01" value="0" aria-label="Steering direction"><span class="sliderlabel">◀ &nbsp; CENTER &nbsp; ▶</span></div><button id="steerRight" class="btn btn-alt bigcontrol" aria-label="Steer right">RIGHT ▶</button></div></div>
-<div id="ballControls" class="controlbox" hidden><p class="control-title">Twin rail controls</p><p class="controlhint" id="ballHint">The ball rolls on a sloping pair of hinged rods. Opening changes the ball height, creating a downhill path toward the scoring pockets. Close the rods to catch momentum before a drop.</p><div class="controls-row"><button id="closeRods" class="btn btn-alt bigcontrol">◀ CLOSE</button><div class="controlcenter"><span class="sliderlabel">RAIL SPREAD</span><input id="gapSlider" type="range" min="0" max="100" step="1" value="8" aria-label="Distance between rails"><span id="spreadReadout" class="sliderlabel">8% OPEN</span></div><button id="openRods" class="btn btn-alt bigcontrol">OPEN ▶</button></div><div class="ball-bottom"><span id="ballTip">TIP: Build speed, then catch with narrower rails.</span><button id="liftBtn" class="btn btn-sm">LIFT BALL</button></div></div>
+<div id="ballControls" class="controlbox" hidden><p class="control-title">Twin rail controls</p><p class="controlhint" id="ballHint">The ball rolls on two sloping hinged rods. Open 30–40% to start; close gradually as it climbs. If the rods stay too wide, the ball falls through.</p><div class="controls-row"><button id="closeRods" class="btn btn-alt bigcontrol">◀ CLOSE</button><div class="controlcenter"><span class="sliderlabel">RAIL SPREAD</span><input id="gapSlider" type="range" min="0" max="100" step="1" value="8" aria-label="Distance between rails"><span id="spreadReadout" class="sliderlabel">8% OPEN</span></div><button id="openRods" class="btn btn-alt bigcontrol">OPEN ▶</button></div><div class="ball-bottom"><span id="ballTip">TIP: Build speed, then catch with narrower rails.</span><button id="liftBtn" class="btn btn-sm">LIFT BALL</button></div></div>
 <div id="courseControls" class="controlbox" hidden><p class="control-title" id="courseControlTitle">Spring launcher</p><p class="controlhint" id="courseHelp">Hold to compress the spring, release to launch at the right strength.</p><div class="controls-row"><button class="btn bigcontrol" id="courseA">HOLD SPRING</button><button class="btn btn-alt bigcontrol" id="courseB">RELEASE</button></div><div class="ball-bottom"><span id="courseReadout">Stage 1 of 4</span><button class="btn btn-sm" id="courseRetry">↻ RESTART STAGE</button></div></div>
 <div id="mazeControls" class="controlbox" hidden><p class="control-title">Two tilt knobs</p><p class="controlhint">Drag the board to tilt it (hold to sustain the angle), or use the two sliders / arrow keys. Release to level the board.</p><label class="sliderlabel" for="tiltX">HORIZONTAL TILT</label><input id="tiltX" type="range" min="-100" max="100" value="0" step="1"><label class="sliderlabel" for="tiltY">VERTICAL TILT</label><input id="tiltY" type="range" min="-100" max="100" value="0" step="1"><div class="ball-bottom"><span id="mazeReadout">0 falls · 0% tilt</span><button id="mazeLevel" class="btn btn-sm">LEVEL BOARD</button></div></div>
 <div id="bearControls" class="controlbox" hidden><p class="control-title">Ray-O-Lite rifle</p><p class="controlhint">Drag to aim and release to fire, or position the crosshair and press FIRE. Hit the running bear to make it rear up; hit its lit sensors for bonuses. 20 shots.</p><div class="controls-row"><button class="btn bigcontrol" id="fireBtn" aria-label="Fire the rifle">◎ FIRE</button><span class="sliderlabel">DRAG CROSSHAIR<br>RELEASE TO FIRE</span></div></div>
@@ -110,7 +110,7 @@ function setStatus(s){$('status').textContent=s}
 function newDrive(){drive={time:75,score:0,dist:0,target:0,x:410,off:false,ended:false,flash:0,checkpoint:0};$('steerSlider').value='0';setStatus('Steer through the bends. Score rises only while you stay on the road.');}
 // Rod geometry in meters: hinged at the left, adjustable at the right.
 // A ball fits between the rails when their separation is less than its diameter.
-const RAIL={L:.42,R:.019,hinge:.008,maxDelta:.082,rise:.010,inertia:1.4};
+const RAIL={L:.42,R:.019,hinge:.008,maxDelta:.11,rise:.006,inertia:1.4};
 function newRails(which){const r={which,score:0,used:0,pos:.16,vel:0,gap:0,target:0,active:false,waiting:true,ended:false,lastScore:0,won:false,flash:0,notice:'Tap LIFT BALL to begin.'};if(which==='moon')moon=r;else ball=r;$('gapSlider').value='0';$('spreadReadout').textContent='0% OPEN';setStatus('Lift a steel ball, then work the rods to control the effective slope.');}
 function newBall(){newRails('ball')}
 function newMoon(){newRails('moon')}
@@ -118,11 +118,11 @@ function newBear(){bear={shots:20,score:0,hits:0,x:175,dir:1,speed:103,rear:0,fl
 const courseTitles=['SPRING LAUNCHER','TIPPING BRIDGE','STEPPING PADS','ROTARY GATE'];
 const courseHints=[
  'Hold SPRING to charge. Release between the two brass marks, not too early and not too late.',
- 'Hold LEFT or RIGHT to tip a narrow bridge. Roll across without letting the ball tumble off an end.',
- 'Hit the flashing LEFT or RIGHT platform as the marker sweeps through its yellow window. Six jumps.',
+ 'Balance the marble in the GOLD CENTER for two seconds. Tap LEFT or RIGHT to counter its momentum and stop the teetering bridge from tipping over.',
+ 'Make six alternating jumps in the moving gold timing window. Each missed sweep or wrong press costs one of four lives. Windows narrow every jump.',
  'Hold CRANK to turn the rotating gate. Tap DROP when its opening aligns with the arrow.'
 ];
-function newCourse(){course={stage:0,elapsed:0,score:0,fails:0,finished:false,charge:0,holding:false,launchTime:0,bridgeX:0,bridgeV:0,angle:0,step:0,phase:0,rot:0,note:'Hold the launcher button to charge the spring.',flash:0,buttonA:false,buttonB:false};updateCourseControls();setStatus(course.note)}
+function newCourse(){course={stage:0,elapsed:0,score:0,fails:0,finished:false,charge:0,holding:false,launchTime:0,bridgeX:.34,bridgeV:.07,angle:-.055,angleV:0,bridgeBalance:0,step:0,stepLives:4,phase:0,rot:0,note:'Hold the launcher button to charge the spring.',flash:0,buttonA:false,buttonB:false};updateCourseControls();setStatus(course.note)}
 // Independent deterministic labyrinth board. Cell wall flags are generated from a maze tree.
 const MZ={cols:9,rows:7,x:211,y:117,size:44};
 function buildMaze(){const cols=MZ.cols,rows=MZ.rows,cells=Array.from({length:cols*rows},()=>({walls:[true,true,true,true],seen:false}));let seed=2303;const rng=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};const stack=[(rows-1)*cols],dirs=[[0,-1],[1,0],[0,1],[-1,0]];cells[stack[0]].seen=true;
@@ -136,7 +136,7 @@ function buildMaze(){const cols=MZ.cols,rows=MZ.rows,cells=Array.from({length:co
  if(cy===rows-1&&c.walls[2])walls.push({x1:x,y1:y+q,x2:x+q,y2:y+q})}
  return {cells,route,routeOrder,holes,walls,start,goal};}
 const mazeMap=buildMaze();
-function newMaze(){maze={x:MZ.x+MZ.size*.5,y:MZ.y+(MZ.rows-.5)*MZ.size,vx:0,vy:0,tx:0,ty:0,targetX:0,targetY:0,elapsed:0,falls:0,score:0,finished:false,flash:0,pointer:null};$('tiltX').value='0';$('tiltY').value='0';setStatus('Roll the steel ball through the maze. Avoid the dark holes.');}
+function newMaze(){maze={x:MZ.x+MZ.size*.5,y:MZ.y+(MZ.rows-.5)*MZ.size,vx:0,vy:0,tx:0,ty:0,targetX:0,targetY:0,elapsed:0,falls:0,score:0,finished:false,flash:0,pointer:null};$('tiltX').value='0';$('tiltY').value='0';setStatus('Roll the steel ball through the maze. The board now visibly tips as you tilt it.');}
 const gameNames={drive:'MINI DRIVE',ball:'BALL WALK',moon:'SHOOT THE MOON',course:'MARBLE MECHANICA',maze:'TILT LABYRINTH',bear:'SHOOT THE BEAR'};
 const histories={
  drive:'Inspired by <b>Kasco Mini Drive</b> (1959): a miniature moving road and steering wheel.',
@@ -148,8 +148,8 @@ const histories={
 };
 function modeTo(which){state.mode=which;$('library').hidden=which!=='library';$('player').hidden=which==='library';if(which==='library'){updateHigh();return}
  $('machineName').textContent=gameNames[which];for(const id of ['drive','ball','bear','course','maze'])$(id+'Controls').hidden=!(id===which||(id==='ball'&&which==='moon'));
- $('history').innerHTML=histories[which];$('ballTip').textContent=which==='moon'?'TIP: Open to gain momentum, close to carry it, spread to drop.':'TIP: Five balls; ring the chime to double the total.';
- $('ballHint').innerHTML=which==='moon'?'<b>Wooden Shoot the Moon:</b> spread the hinged rods to create a downward slope along the ball. Close to preserve momentum, then open at the scoring hole.':'<b>Ball Walk:</b> spread the steel rods to coax the ball uphill. Gravity and the ball’s momentum determine whether it climbs, reverses, or drops.';
+ $('history').innerHTML=histories[which];$('ballTip').textContent=which==='moon'?'TIP: Gradual opening starts it; close to climb, then open to drop.':'TIP: Move the rods while the ball climbs. Avoid a wide gap.';
+ $('ballHint').innerHTML=which==='moon'?'<b>Shoot the Moon:</b> the wooden board faces uphill. Build momentum by adjusting the hinged rods; open at the cup you want.':'<b>Ball Walk:</b> begin with a moderate spread and narrow the rods as the ball climbs. Holding a single opening will usually stall or drop the ball.';
  if(which==='drive')newDrive();else if(which==='ball')newBall();else if(which==='moon')newMoon();else if(which==='bear')newBear();else if(which==='course')newCourse();else if(which==='maze')newMaze();draw();window.scrollTo({top:0,behavior:'instant'});
 }
 function reset(){if(state.mode==='drive')newDrive();if(state.mode==='ball')newBall();if(state.mode==='moon')newMoon();if(state.mode==='bear')newBear();if(state.mode==='course')newCourse();if(state.mode==='maze')newMaze();sound('click')}
@@ -160,34 +160,39 @@ const left=state.keys.has('arrowleft')||state.keys.has('a')||state.holds.has('st
 drive.x=lerp(drive.x,410+drive.target*285,Math.min(1,dt*6));drive.dist+=dt*130;drive.time=Math.max(0,drive.time-dt);const center=roadCenter(387,drive.dist);const bad=Math.abs(drive.x-center)>124;drive.score+=dt*(bad?0:66);if(bad&&!drive.off){sound('fall');shake()}drive.off=bad;drive.flash=Math.max(0,drive.flash-dt);
 const check=Math.floor(drive.dist/1450);if(check>drive.checkpoint){drive.checkpoint=check;if(!bad){drive.score+=180;drive.flash=1.4;sound('point')}}
 if(drive.time<=0){drive.ended=true;scoreIfBest('drive',drive.score);sound('finish');setStatus('TIME! Your run is complete. Press RESET to try again.')}}
-function liftBall(){if(!railMode())return;const r=railState();if(r.ended||r.active||r.used>=5)return;r.active=true;r.waiting=false;r.pos=.16;r.vel=0;r.gap=0;r.target=0;r.notice='Open the rods to reshape the slope and build speed.';$('gapSlider').value='0';$('spreadReadout').textContent='0% OPEN';sound('click');setStatus('Ball '+(r.used+1)+' of 5 · open to accelerate, narrow to save it.');}
+function liftBall(){if(!railMode())return;const r=railState();if(r.ended||r.active||r.used>=5)return;r.active=true;r.waiting=false;r.pos=.16;r.vel=0;r.gap=0;r.target=0;r.notice='Open modestly to start the ball; narrow the rods as it climbs.';$('gapSlider').value='0';$('spreadReadout').textContent='0% OPEN';sound('click');setStatus('Ball '+(r.used+1)+' of 5 · start around 30–40% open, narrow as it climbs.');}
 function railSeparation(r,u){return RAIL.hinge+RAIL.maxDelta*r.gap*u}
 function railDrop(won=false){const r=railState();if(!r.active)return;r.active=false;r.waiting=true;r.used++;
  let s;if(won)s=r.which==='moon'?5000:500;else if(r.which==='moon'){const vals=[-250,250,500,1000,2000,5000];s=vals[Math.min(4,Math.floor(r.pos*5))]}else s=Math.min(400,Math.floor(clamp(r.pos,0,.999)*5)*100);
  r.lastScore=s;r.score+=s;r.won=r.won||won;r.flash=1.3;r.notice=won?(r.which==='ball'?'CHIME! The total will be doubled.':'MOON SHOT! 5000 POINTS'):`${s} POINTS — ball landed in the scoring cup.`;
  if(won){sound('bell');shake()}else{sound(s>0?'point':'fall');if(s<=0)shake()}
  if(r.used>=5){r.ended=true;if(r.won&&r.which==='ball')r.score*=2;scoreIfBest(r.which,r.score);r.notice=`GAME OVER · ${r.score} POINTS`;setStatus(r.notice+' · RESET to try again.')}else setStatus(r.notice+' · Lift the next ball.');}
-function updateRails(dt){const r=railState();r.flash=Math.max(0,r.flash-dt);if(!r.active)return;
- if(state.holds.has('openRods')||state.keys.has('arrowright')||state.keys.has('d'))r.target=clamp(r.target+dt*.76,0,1);
- if(state.holds.has('closeRods')||state.keys.has('arrowleft')||state.keys.has('a'))r.target=clamp(r.target-dt*1.10,0,1);
+function updateRails(dt){
+ const r=railState();r.flash=Math.max(0,r.flash-dt);if(!r.active)return;
+ if(state.holds.has('openRods')||state.keys.has('arrowright')||state.keys.has('d'))r.target=clamp(r.target+dt*.68,0,1);
+ if(state.holds.has('closeRods')||state.keys.has('arrowleft')||state.keys.has('a'))r.target=clamp(r.target-dt*.85,0,1);
+ const prev=r.gap;
+ r.gap=lerp(r.gap,r.target,Math.min(1,dt*10));
  $('gapSlider').value=String(Math.round(r.target*100));
- const prev=r.gap;r.gap=lerp(r.gap,r.target,Math.min(1,dt*8));$('spreadReadout').textContent=Math.round(r.gap*100)+'% OPEN';
- // Physically grounded 1D rolling approximation, rather than an arcade progress multiplier:
- // y(u)=slope*u+sqrt(R^2-(d(u)/2)^2), with rod separation d(u)=hinge+spread*u.
- // Force follows -g*dy/du, divided by rolling inertia and rod length squared.
- // A tiny coupling term captures energy transferred while the operator moves the rods.
+ $('spreadReadout').textContent=Math.round(r.gap*100)+'% OPEN';
+ // Hinged rod geometry: the free ends separate while the lower ends stay fixed.
+ // The ball-center height is z(u)=rise*u+sqrt(R² - [d(u)/2]²).
+ // The local slope and its associated gravitational acceleration vary with both
+ // ball position and *actual* rod separation. Contact fails at the ball diameter.
  const d=railSeparation(r,r.pos),dd=RAIL.maxDelta*r.gap;
  if(d>=RAIL.R*2*.985){railDrop(false);return}
  const support=Math.sqrt(Math.max(.000001,RAIL.R**2-(d/2)**2));
- const dydU=RAIL.rise-d*dd/(4*support);
- const gravAcc=-9.81*dydU/(RAIL.L**2*RAIL.inertia);
- const movingAcc=clamp((r.gap-prev)/Math.max(dt,.001),-2,2)*r.pos*.10;
- const friction=.18*r.vel+.018*Math.sign(r.vel);
- r.vel=clamp(r.vel+(gravAcc+movingAcc-friction)*dt,-1.35,1.55);
+ const dzdu=RAIL.rise-d*dd/(4*support);
+ const gravAcc=-9.81*dzdu/(RAIL.L**2*RAIL.inertia);
+ // Small dynamic coupling on a moving rod, not an arbitrary progress bonus.
+ const rodRate=clamp((r.gap-prev)/Math.max(dt,.001),-2,2);
+ const moveAcc=rodRate*r.pos*.075;
+ const resistance=.42*r.vel+.014*Math.sign(r.vel);
+ if(Math.abs(r.vel)<.002&&Math.abs(gravAcc+moveAcc)<.023)r.vel=0;
+ else r.vel=clamp(r.vel+(gravAcc+moveAcc-resistance)*dt,-1.2,1.4);
  r.pos+=r.vel*dt;
- if(r.pos<=.06){r.pos=.06;if(r.vel<0)r.vel=0}
+ if(r.pos<=.065){r.pos=.065;if(r.vel<0)r.vel=0}
  if(r.pos>=.985){r.pos=.985;railDrop(true);return}
- // Rod height is position-dependent, so near the wider end the ball can suddenly fall.
  if(railSeparation(r,r.pos)>=RAIL.R*2*.985){railDrop(false);return}
 }
 function updateBear(dt){if(bear.ended)return;bear.flash=Math.max(0,bear.flash-dt);bear.hit=Math.max(0,bear.hit-dt);
@@ -297,8 +302,43 @@ function drawSteelBall(x,y,r=15){
  ctx.fillStyle='#1f24255c';ctx.beginPath();ctx.ellipse(x+7,y+10,r*.95,r*.38,0,0,Math.PI*2);ctx.fill();
  const g=ctx.createRadialGradient(x-r*.38,y-r*.48,1,x,y,r);g.addColorStop(0,'#ffffff');g.addColorStop(.2,'#e2ece9');g.addColorStop(.5,'#9bacb0');g.addColorStop(.78,'#526167');g.addColorStop(1,'#242c2c');circle(x,y,r,g,'#293838',1);circle(x-r*.36,y-r*.45,Math.max(2,r*.19),'#ffffffdb');
 }
+function drawMoonRails(r){
+ cabinet('SHOOT THE MOON','WOODEN HILL-CLIMBER  •  5 BALLS  •  PLANET POCKETS','#b78246');
+ ctx.save();ctx.beginPath();ctx.roundRect(57,112,706,324,8);ctx.clip();
+ ctx.fillStyle=grad(57,112,750,440,[[0,'#9d6b3c'],[.48,'#d1a36c'],[1,'#744823']]);ctx.fillRect(57,112,706,324);
+ for(let i=0;i<28;i++)line(64,120+i*12,758,120+i*12,'#51351820',1.2);
+ rr(231,117,364,307,20,'#664429','#e4ba78',7);
+ rr(246,128,333,284,13,'#d7b27e','#754f2c',4);
+ const startY=392,goalY=171,cx=414,off0=4,off1=4+34*r.gap;
+ const steel=grad(356,0,472,0,[[0,'#48595a'],[.45,'#fff8e7'],[1,'#64787b']]);
+ // The joined hinge is at the bottom. Handles are at the top.
+ ctx.lineCap='round';line(cx-off0,startY,cx-off1,goalY,steel,8);line(cx+off0,startY,cx+off1,goalY,steel,8);
+ line(cx-off0-2,startY,cx-off1-2,goalY,'#f2f6edb0',1.4);line(cx+off0-2,startY,cx+off1-2,goalY,'#f2f6edb0',1.4);
+ circle(cx,startY,10,'#46433d','#efcc92',3);
+ rr(cx-off1-17,goalY-13,31,9,3,'#514338','#e4ca9c',1);rr(cx+off1-14,goalY-13,31,9,3,'#514338','#e4ca9c',1);
+ const vals=[-250,250,500,1000,2000,5000];
+ for(let i=0;i<6;i++){
+  const y=394-i*42;
+  const x=i%2?535:295;
+  circle(x,y,15,'#3b3b2b','#f0d296',3);circle(x-2,y-1,9,'#171d1b');
+  text(i===5?'PLUTO':i===4?'SATURN':i===3?'JUPITER':i===2?'MARS':i===1?'EARTH':'MERCURY',x+(i%2?-30:30),y-21,10,'#4e351e',i%2?'right':'left');
+  text(String(vals[i]),x,y+32,13,i===5?'#f6e0a0':'#4e351e','center','Georgia,serif');
+  line(i%2?cx+26:x+16,y,i%2?x-18:cx-26,y,'#704b3390',2);
+ }
+ if(r.active){const y=lerp(startY-3,goalY+5,clamp(r.pos,.06,.985));drawSteelBall(cx,y,15)}
+ text('UPHILL',414,152,13,'#694322','center');
+ if(r.flash>0){rr(263,189,301,42,8,'#203833ed','#dfbd7e',2);text(r.lastScore===5000?'MOON SHOT!':`${r.lastScore} POINTS`,414,216,19,'#f4dda0','center')}
+ if(!r.active){rr(265,234,295,71,8,'#253735e8','#e1bb79',2);
+  if(r.ended){text('ROUND COMPLETE',413,263,21,'#f2d99b','center','Georgia,serif');text('SCORE '+r.score,413,292,17,'#efe4c8','center')}
+  else{text('LIFT THE BALL',413,263,22,'#f2d99b','center','Georgia,serif');text(`BALL ${r.used+1} OF 5 · TAP BOARD`,413,291,12,'#e5e5d7','center')}}
+ ctx.restore();
+ rr(53,456,714,56,10,'#34251f','#d6ad73',2);
+ text('BALLS',80,481,10,'#e3c498');for(let i=0;i<5;i++)circle(115+i*24,498,7,i<r.used?'#644b3c':'#f1d396','#ac8b61',1);
+ text('RAIL OPEN',330,481,11,'#f0d6ad');text(Math.round(r.gap*100)+'%',330,502,19,'#f7dc9d');
+ text('BALL SPEED',545,481,11,'#f0d6ad');text(`${Math.abs(r.vel).toFixed(2)} ${r.vel>=0?'↑':'↓'}`,545,502,18,'#f7dc9d');
+}
 function drawRails(){
- const r=railState(),isMoon=r.which==='moon';cabinet(isMoon?'SHOOT THE MOON':'BALL WALK',isMoon?'WOODEN TABLETOP  •  STEEL BALL  •  5 ATTEMPTS':'COINTRONICS-INSPIRED  •  5 BALLS  •  CHIME BONUS',isMoon?'#b78246':'#ae8156');
+ const r=railState(),isMoon=r.which==='moon';if(isMoon){drawMoonRails(r);return}cabinet(isMoon?'SHOOT THE MOON':'BALL WALK',isMoon?'WOODEN TABLETOP  •  STEEL BALL  •  5 ATTEMPTS':'COINTRONICS-INSPIRED  •  5 BALLS  •  CHIME BONUS',isMoon?'#b78246':'#ae8156');
  ctx.save();ctx.beginPath();ctx.roundRect(57,112,706,324,8);ctx.clip();
  ctx.fillStyle=grad(57,112,763,430,[[0,isMoon?'#c6985a':'#dfd1b3'],[.55,isMoon?'#e6c68b':'#c8b89a'],[1,isMoon?'#a66e3d':'#a89975']]);ctx.fillRect(57,112,706,324);
  for(let i=0;i<24;i++)line(60,120+i*14,760,124+i*14,isMoon?'#55361c0d':'#62533812',1);
@@ -338,21 +378,53 @@ function updateCourseControls(){if(!course)return;
  const [aLabel,bLabel]=labels[Math.min(course.stage,3)];a.textContent=aLabel;b.textContent=bLabel;
  $('courseReadout').textContent=course.finished?'COURSE COMPLETE':`STATION ${course.stage+1}/4 · ${course.fails} MISFIRES`;
 }
-function courseAdvance(){course.score+=250+Math.max(0,Math.floor(70-course.elapsed*8));course.flash=1.2;course.note=`Station ${course.stage+1} cleared!`;sound('point');course.stage++;course.elapsed=0;course.charge=0;course.holding=false;course.launchTime=0;course.bridgeX=.1;course.bridgeV=0;course.angle=0;course.step=0;course.phase=0;course.rot=0;
+function courseAdvance(){course.score+=250+Math.max(0,Math.floor(70-course.elapsed*8));course.flash=1.2;course.note=`Station ${course.stage+1} cleared!`;sound('point');course.stage++;course.elapsed=0;course.charge=0;course.holding=false;course.launchTime=0;course.bridgeX=.34;course.bridgeV=.07;course.angle=-.055;course.angleV=0;course.bridgeBalance=0;course.step=0;course.stepLives=4;course.phase=0;course.rot=0;
  if(course.stage>=4){course.finished=true;scoreIfBest('course',course.score);course.note=`COURSE FINISHED — ${course.score} points! RESET to try again.`;sound('finish')}updateCourseControls();}
-function courseFail(note){course.fails++;course.score=Math.max(0,course.score-30);course.note=`${note} Try this station again.`;course.flash=.75;course.charge=0;course.holding=false;course.launchTime=0;course.elapsed=0;course.bridgeX=.1;course.bridgeV=0;course.angle=0;course.step=0;course.phase=0;course.rot=0;sound('fall');shake();}
+function courseFail(note){course.fails++;course.score=Math.max(0,course.score-30);course.note=`${note} Try this station again.`;course.flash=.75;course.charge=0;course.holding=false;course.buttonA=course.buttonB=false;course.launchTime=0;course.elapsed=0;course.bridgeX=.34;course.bridgeV=.07;course.angle=-.055;course.angleV=0;course.bridgeBalance=0;course.step=0;course.stepLives=4;course.phase=0;course.rot=0;sound('fall');shake();}
+function courseTimingHalf(){return Math.max(.075,.25-course.step*.034)}
+function courseStepMiss(note){
+ course.stepLives--;
+ course.phase=0;
+ sound('fall');shake();
+ if(course.stepLives<=0){courseFail('All four stepping-platform lives lost.');return}
+ course.note=`${note} · ${course.stepLives} lives left. Jump ${course.step+1}/6.`;
+ course.flash=.65;
+}
 function coursePress(which){if(!course||course.finished)return;const a=which==='a';
  if(course.stage===0){if(!a){courseShoot()}else course.holding=true}
  else if(course.stage===1){if(a)course.buttonA=true;else course.buttonB=true}
- else if(course.stage===2){const correct=(course.step%2===0&&a)||(course.step%2===1&&!a);const windowOk=course.phase>.34&&course.phase<.76;if(!correct){courseFail('Wrong stepping platform.');return}if(!windowOk){courseFail('Missed the moving timing marker.');return}course.step++;course.phase=0;course.note=`Jump ${course.step}/6!`;sound('click');if(course.step>=6)courseAdvance()}
+ else if(course.stage===2){
+  const correct=(course.step%2===0&&a)||(course.step%2===1&&!a);
+  const windowOk=Math.abs(course.phase-.5)<=courseTimingHalf();
+  if(!correct){courseStepMiss('Wrong stepping platform');return}
+  if(!windowOk){courseStepMiss('Missed the shrinking gold window');return}
+  course.step++;course.phase=0;course.note=`Jump ${course.step}/6! ${course.stepLives} lives remaining.`;sound('click');
+  if(course.step>=6)courseAdvance();
+ }
  else if(course.stage===3){if(a)course.buttonA=true;else{const target=2.20,err=Math.atan2(Math.sin(course.rot-target),Math.cos(course.rot-target));if(Math.abs(err)<.24)courseAdvance();else courseFail('The rotary opening was not aligned.')}}
 }
 function courseRelease(which){if(!course||course.finished)return;if(which==='a'){course.buttonA=false;if(course.stage===0&&course.holding){course.holding=false;courseShoot()}}else course.buttonB=false;}
 function courseShoot(){if(!course||course.stage!==0||course.launchTime>0)return;const v=course.charge;course.holding=false;if(v<.43||v>.81){courseFail(v<.43?'Not enough spring tension.':'Too much spring tension!');return}course.note='Marble airborne!';course.launchTime=.9;sound('shot');}
 function updateCourse(dt){if(course.finished)return;course.flash=Math.max(0,course.flash-dt);course.elapsed+=dt;
  if(course.stage===0){if(course.holding)course.charge=clamp(course.charge+dt*.58,0,1);if(course.launchTime>0){course.launchTime-=dt;if(course.launchTime<=0)courseAdvance()}}
- if(course.stage===1){const delta=(course.buttonB?1:0)-(course.buttonA?1:0);course.angle=clamp(course.angle+delta*dt*1.2-course.angle*dt*.75,-.47,.47);course.bridgeV=clamp((course.bridgeV+dt*(course.angle*3.3-.14))*Math.exp(-dt*.67),-.9,1.05);course.bridgeX+=course.bridgeV*dt;if(Math.abs(course.angle)>.40||course.bridgeX<-.06){courseFail('The marble fell off the teetering bridge.');return}if(course.bridgeX>=.92)courseAdvance();}
- if(course.stage===2){course.phase=(course.phase+dt*.8)%1}
+ if(course.stage===1){
+  const steer=Number(course.buttonB)-Number(course.buttonA);
+  // A teeter-totter: the off-center ball itself tips the bridge further.
+  course.angleV+=(steer*2.2+(course.bridgeX-.5)*1.5-course.angle*1.3-course.angleV*2.9)*dt;
+  course.angle=clamp(course.angle+course.angleV*dt,-.45,.45);
+  course.bridgeV=(course.bridgeV+Math.sin(course.angle)*2.6*dt)*Math.exp(-dt*.5);
+  course.bridgeX+=course.bridgeV*dt;
+  const steady=Math.abs(course.bridgeX-.5)<.082&&Math.abs(course.bridgeV)<.19&&Math.abs(course.angle)<.13;
+  course.bridgeBalance=steady?course.bridgeBalance+dt:Math.max(0,course.bridgeBalance-dt*.7);
+  if(course.bridgeX<.04||course.bridgeX>.96||Math.abs(course.angle)>.39){courseFail('The marble rolled off the unbalanced bridge.');return}
+  if(course.bridgeBalance>=2){courseAdvance();return}
+  course.note=`Balance the center · ${course.bridgeBalance.toFixed(1)}/2.0 seconds`;
+ }
+ if(course.stage===2){
+  course.phase+=dt*(.75+.09*course.step);
+  if(course.phase>=1){courseStepMiss('The timing marker completed a sweep');return}
+  course.note=`Jump ${course.step+1}/6 · ${course.stepLives} lives · shrinking timing window`;
+ }
  if(course.stage===3&&course.buttonA)course.rot=(course.rot+dt*1.4)%(2*Math.PI);
 }
 function drawCourse(){cabinet('MARBLE MECHANICA','ORIGINAL OBSTACLE COURSE  •  PRESS · LEVER · CRANK','#6eaf8d');
@@ -364,9 +436,21 @@ function drawCourse(){cabinet('MARBLE MECHANICA','ORIGINAL OBSTACLE COURSE  • 
  if(k===0){text('SPRING LAUNCH',410,211,30,'#ffe6a4','center','Georgia,serif');rr(145,289,507,52,16,'#203e3c','#e2a84c',5);rr(160,307,69,18,5,'#c85343','#f3d182',3);for(let i=0;i<6;i++){line(240+i*9,315,244+i*9,304,'#d9dde0',3)}
  const sx=220+course.charge*120;drawSteelBall(course.launchTime>0?lerp(345,620,1-course.launchTime/.9):sx,course.launchTime>0?292-74*Math.sin(Math.PI*(1-course.launchTime/.9)):294,19);
  for(let i=0;i<5;i++){rr(283+i*51,356,39,19,3,i>=2&&i<=3?'#e9d183':'#56756c','#ffffff43',1)}rr(280,355,265*course.charge,5,3,'#fff4a6');text('POWER: '+Math.round(course.charge*100)+'%',410,399,20,'#f4e1b5','center');text('GOLD ZONE 43–81%',410,425,14,'#d8e6c9','center');}
- if(k===1){text('THE TEETERING BRIDGE',410,210,29,'#ffe6a4','center','Georgia,serif');ctx.save();ctx.translate(408,317);ctx.rotate(course.angle);rr(-241,-21,480,42,10,'#edba53','#9c5635',5);for(let i=0;i<7;i++)line(-224+i*73,-16,-224+i*73,16,'#5b5039aa',3);drawSteelBall(-218+course.bridgeX*465,-22,18);ctx.restore();ctx.fillStyle='#173e38';ctx.beginPath();ctx.moveTo(369,391);ctx.lineTo(410,343);ctx.lineTo(452,391);ctx.fill();text('KEEP THE TILT GENTLE',410,423,16,'#f9ecc9','center');}
- if(k===2){text('SIX STEPPING PLATFORMS',410,205,27,'#ffe6a4','center','Georgia,serif');for(let i=0;i<6;i++){const x=168+i*91,y=i%2?293:345;rr(x-32,y-18,68,33,7,i<course.step?'#a8d5a6':i===course.step?'#ffd366':'#d2b77e','#654d36',4);text(String(i+1),x,y+5,18,'#30342f','center')}const ix=Math.min(5,course.step),cx=168+ix*91,cy=ix%2?293:345;drawSteelBall(cx,cy-25,14);
- rr(171,392,476,18,8,'#205347','#dfc878',2);rr(171+476*.34,390,476*.42,22,4,'#d3b353b0');rr(171+476*course.phase,389,8,25,3,'#fff5c7');text('TIMING WINDOW · '+(course.step%2?'RIGHT':'LEFT')+' PAD',410,432,15,'#f8e6b4','center');}
+ if(k===1){text('BALANCE THE TEETERING BRIDGE',410,202,27,'#ffe6a4','center','Georgia,serif');
+  ctx.save();ctx.translate(408,306);ctx.rotate(course.angle);
+  rr(-241,-21,480,42,10,'#edba53','#9c5635',5);for(let i=0;i<7;i++)line(-224+i*73,-16,-224+i*73,16,'#5b5039aa',3);
+  rr(-39,-19,76,38,5,'#a6ce8959','#fff4b2',3);
+  drawSteelBall(-218+course.bridgeX*465,-22,18);ctx.restore();
+  ctx.fillStyle='#173e38';ctx.beginPath();ctx.moveTo(369,383);ctx.lineTo(410,339);ctx.lineTo(452,383);ctx.fill();
+  rr(268,399,284,12,5,'#184b44','#e5c988',2);rr(271,402,278*clamp(course.bridgeBalance/2,0,1),6,3,'#f3d56d');
+  text('HOLD BALL IN THE GOLD CENTER FOR 2 SECONDS',410,428,13,'#f9ecc9','center');}
+ if(k===2){text('SIX STEPPING PLATFORMS',410,204,27,'#ffe6a4','center','Georgia,serif');
+  for(let i=0;i<6;i++){const x=168+i*91,y=i%2?293:345;rr(x-32,y-18,68,33,7,i<course.step?'#a8d5a6':i===course.step?'#ffd366':'#d2b77e','#654d36',4);text(String(i+1),x,y+5,18,'#30342f','center')}
+  const ix=Math.min(5,course.step),cx=168+ix*91,cy=ix%2?293:345;drawSteelBall(cx,cy-25,14);
+  rr(171,392,476,18,8,'#205347','#dfc878',2);
+  const half=courseTimingHalf();rr(171+476*(.5-half),390,476*half*2,22,4,'#d3b353b0');
+  rr(171+476*course.phase,389,8,25,3,'#fff5c7');
+  text('♥'.repeat(course.stepLives)+' ♡'.repeat(4-course.stepLives)+'    ·    '+(course.step%2?'RIGHT':'LEFT')+' PAD',410,432,16,'#f8e6b4','center');}
  if(k===3){text('ALIGN THE ROTARY GATE',410,208,29,'#ffe6a4','center','Georgia,serif');circle(410,314,106,'#1d5a54','#f0b94f',9);circle(410,314,85,'#b3c7a2','#4e795d',8);ctx.save();ctx.translate(410,314);ctx.rotate(course.rot);ctx.fillStyle='#d7a74e';ctx.beginPath();ctx.arc(0,0,85,-.33,.33);ctx.lineTo(0,0);ctx.fill();ctx.strokeStyle='#fff2aa';ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(86,0);ctx.stroke();ctx.restore();ctx.save();ctx.translate(410,314);ctx.rotate(2.2);ctx.beginPath();ctx.moveTo(115,-19);ctx.lineTo(83,0);ctx.lineTo(115,19);ctx.fillStyle='#fff4b4';ctx.fill();ctx.restore();drawSteelBall(410,314,19);text('CRANK TO THE ARROW, THEN DROP',410,435,17,'#fff0bc','center');}
  ctx.restore();rr(53,456,714,56,10,'#183f3d','#e5c17f',2);text('STATION',83,480,10,'#cbd9bf');text(`${Math.min(4,k+1)}/4`,83,500,20,'#f9da9a');text('MISTAKES',324,480,10,'#cbd9bf');text(String(course.fails),324,500,20,'#f9da9a');text('SCORE',559,480,10,'#cbd9bf');text(format(course.score),559,500,20,'#f9da9a');
  if(course.finished){rr(165,219,490,122,10,'#193b37f5','#edcf89',3);text('COURSE COMPLETE!',410,267,31,'#fff0c2','center','Georgia,serif');text(`FINAL SCORE: ${course.score}`,410,307,20,'#fbdead','center')}
@@ -389,6 +473,15 @@ function updateMaze(dt){if(maze.finished)return;maze.elapsed+=dt;maze.flash=Math
 function drawMaze(){cabinet('TILT LABYRINTH','WOODEN TILT-BOARD  •  TWO AXIS KNOBS  •  ORIGINAL MAZE','#bc9266');
  ctx.save();ctx.beginPath();ctx.roundRect(57,112,706,324,8);ctx.clip();ctx.fillStyle='#d6ae72';ctx.fillRect(57,112,706,324);
  for(let i=0;i<30;i++)line(58,118+i*12,761,120+i*12,i%3?'#d19e5f22':'#79553225',1);
+ // The entire maze board tilts visually, not just the steel ball. A shifting
+ // shadow and foreshortening make the two independently controlled axes legible.
+ const bcX=MZ.x+MZ.cols*MZ.size/2,bcY=MZ.y+MZ.rows*MZ.size/2;
+ rr(MZ.x-20+maze.tx*8,MZ.y-17+maze.ty*8,MZ.cols*MZ.size+40,MZ.rows*MZ.size+34,8,'#39291ee0','#7c5b3b',4);
+ ctx.save();ctx.translate(bcX,bcY);
+ ctx.transform(1,maze.ty*.085,maze.tx*.085,1,0,0);
+ ctx.rotate(maze.tx*.05-maze.ty*.045);
+ ctx.scale(.94-Math.abs(maze.ty)*.04,.75-Math.abs(maze.tx)*.04);
+ ctx.translate(-bcX,-bcY);
  rr(MZ.x-17,MZ.y-14,MZ.cols*MZ.size+34,MZ.rows*MZ.size+28,7,'#694328','#f3cd8e',6);
  rr(MZ.x,MZ.y,MZ.cols*MZ.size,MZ.rows*MZ.size,2,'#d8b884','#674b33',2);
  const sz=MZ.size;for(let j=0;j<MZ.rows;j++)for(let i=0;i<MZ.cols;i++){const x=MZ.x+i*sz,y=MZ.y+j*sz;ctx.fillStyle=(i+j)%2===0?'#f4d5a923':'#9b723717';ctx.fillRect(x+1,y+1,sz-2,sz-2)}
@@ -397,6 +490,12 @@ function drawMaze(){cabinet('TILT LABYRINTH','WOODEN TILT-BOARD  •  TWO AXIS K
  const sx=MZ.x+sz*.5,sy=MZ.y+(MZ.rows-.5)*sz,gx=MZ.x+(MZ.cols-.5)*sz,gy=MZ.y+sz*.5;
  circle(sx,sy,16,'#648c6a77','#6a8c5e',2);text('S',sx,sy-18,12,'#435736','center');circle(gx,gy,17,'#bca543','#5a5030',3);text('G',gx,gy+6,16,'#473a27','center');
  drawSteelBall(maze.x,maze.y,10);
+ ctx.restore(); // board tilt
+ // Tilt direction indicator fixed to the cabinet, independent of moving board.
+ circle(109,166,36,'#6d4e30d8','#f0d2a0',3);
+ line(109,130,109,202,'#dfc08e55',2);line(73,166,145,166,'#dfc08e55',2);
+ circle(109+maze.tx*21,166+maze.ty*21,9,'#bfe3d9','#f8f5d2',2);
+ text('TILT',109,121,12,'#533b23','center');
  ctx.restore();
  rr(53,456,714,56,10,'#30261f','#b9915c',2);text('TILT X',80,480,10,'#e2c499');text(Math.round(maze.tx*100)+'%',80,502,18,'#f1d495');text('TILT Y',322,480,10,'#e2c499');text(Math.round(maze.ty*100)+'%',322,502,18,'#f1d495');text('FALLS',556,480,10,'#e2c499');text(String(maze.falls),556,502,18,'#f1d495');
  if(maze.finished){rr(184,231,452,100,9,'#213e35f0','#efc784',3);text('YOU REACHED THE FINISH!',410,272,25,'#fae8b8','center','Georgia,serif');text(`${Math.max(0,Math.floor(maze.score))} POINTS`,410,306,20,'#f6dcab','center')}
@@ -405,7 +504,7 @@ function drawMaze(){cabinet('TILT LABYRINTH','WOODEN TILT-BOARD  •  TWO AXIS K
 function draw(){ctx.clearRect(0,0,W,H);if(state.mode==='drive'&&drive)drawDrive();if(railMode()&&railState())drawRails();if(state.mode==='bear'&&bear)drawBear();if(state.mode==='course'&&course)drawCourse();if(state.mode==='maze'&&maze)drawMaze()}
 function hud(){if(state.mode==='drive'){ $('labelA').textContent='SCORE';$('valueA').textContent=format(drive.score);$('labelB').textContent='TIME LEFT';$('valueB').textContent=Math.ceil(drive.time)+'s';$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(drive.score,high.drive));if(!drive.ended&&drive.off)setStatus('OFF ROAD — steer back onto the roadway!');else if(!drive.ended&&drive.flash>0)setStatus('CHECKPOINT! +180 points');else if(!drive.ended)setStatus('Stay on the painted road to keep earning points.');}
  if(state.mode==='bear'){$('labelA').textContent='SCORE';$('valueA').textContent=format(bear.score);$('labelB').textContent='SHOTS';$('valueB').textContent=bear.shots+'/20';$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.bear,bear.score));}
- if(railMode()){const r=railState();$('labelA').textContent='TOTAL POINTS';$('valueA').textContent=format(r.score);$('labelB').textContent='BALL';$('valueB').textContent=`${Math.min(5,r.used+1)}/5`;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high[r.which],r.score));if(r.active)setStatus(`Ball ${r.used+1}/5 · ${Math.round(r.pos*100)}% along rails · velocity ${r.vel>=0?'↑':'↓'} · Spread ${Math.round(r.gap*100)}%`);}
+ if(railMode()){const r=railState();$('labelA').textContent='TOTAL POINTS';$('valueA').textContent=format(r.score);$('labelB').textContent='BALL';$('valueB').textContent=`${Math.min(5,r.used+1)}/5`;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high[r.which],r.score));if(r.active){const limit=(RAIL.R*2*.985-RAIL.hinge)/(RAIL.maxDelta*Math.max(.05,r.pos));const risk=r.gap>limit*.88?' · GAP DANGER!':' ';setStatus(`Ball ${r.used+1}/5 · ${Math.round(r.pos*100)}% uphill · speed ${r.vel>=0?'↑':'↓'} · spread ${Math.round(r.gap*100)}%${risk}`)}}
  if(state.mode==='course'){$('labelA').textContent='SCORE';$('valueA').textContent=format(course.score);$('labelB').textContent='STATION';$('valueB').textContent=`${Math.min(4,course.stage+1)}/4`;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.course,course.score));setStatus(course.note);}
  if(state.mode==='maze'){$('labelA').textContent='PROGRESS';$('valueA').textContent=format(maze.score);$('labelB').textContent='FALLS';$('valueB').textContent=maze.falls;$('labelC').textContent='BEST';$('valueC').textContent=format(Math.max(high.maze,maze.score));$('mazeReadout').textContent=`${maze.falls} falls · tilt X ${Math.round(maze.tx*100)}%, Y ${Math.round(maze.ty*100)}%`;}
 }
@@ -417,7 +516,7 @@ $('gapSlider').addEventListener('input',e=>{if(railMode()&&railState())railState
 cvs.addEventListener('pointerdown',e=>{if(state.mode==='library')return;try{cvs.setPointerCapture(e.pointerId)}catch{};if(railMode()&&railState()&&!railState().active&&!railState().ended){liftBall();return}onCanvasPoint(e)});
 cvs.addEventListener('pointerup',e=>{if(state.mode==='bear'&&bear&&!bear.ended){onCanvasPoint(e);fireBear()}});
 cvs.addEventListener('pointermove',e=>{if(e.buttons||e.pressure>0)onCanvasPoint(e)});
-function onCanvasPoint(e){const r=cvs.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H;if(state.mode==='drive'&&drive&&!drive.ended){drive.target=clamp((x-410)/285,-1,1);$('steerSlider').value=drive.target}if(railMode()&&railState()&&railState().active){const v=clamp((x-145)/(690-145),0,1);railState().target=v;$('gapSlider').value=Math.round(v*100)}if(state.mode==='bear'&&bear&&!bear.ended){bear.aimX=clamp(x,64,756);bear.aimY=clamp(y,122,433)}}
+function onCanvasPoint(e){const r=cvs.getBoundingClientRect(),x=(e.clientX-r.left)/r.width*W,y=(e.clientY-r.top)/r.height*H;if(state.mode==='drive'&&drive&&!drive.ended){drive.target=clamp((x-410)/285,-1,1);$('steerSlider').value=drive.target}if(railMode()&&railState()&&railState().active){const v=clamp((state.mode==='moon'?x-250:x-145)/(state.mode==='moon'?330:545),0,1);railState().target=v;$('gapSlider').value=Math.round(v*100)}if(state.mode==='bear'&&bear&&!bear.ended){bear.aimX=clamp(x,64,756);bear.aimY=clamp(y,122,433)}}
 document.addEventListener('keydown',e=>{const k=e.key.toLowerCase();if(['arrowleft','arrowright','arrowup','arrowdown',' ','a','d','w','s','r','j','k'].includes(k)&&state.mode!=='library')e.preventDefault();state.keys.add(k);if(k===' '&&railMode()&&!e.repeat)liftBall();if(k===' '&&state.mode==='bear'&&!e.repeat)fireBear();if(k==='r'&&state.mode!=='library'&&!e.repeat)reset()});
 document.addEventListener('keyup',e=>state.keys.delete(e.key.toLowerCase()));
 window.addEventListener('blur',()=>{state.keys.clear();state.holds.clear();document.querySelectorAll('.bigcontrol').forEach(e=>e.classList.remove('pressed'))});
